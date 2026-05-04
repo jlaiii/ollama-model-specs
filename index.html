@@ -84,7 +84,7 @@
 <body>
 <div class="sticky">
   <div class="sticky-inner">
-    <span class="logo">🟢 OLLAMA SPECS</span>
+    <span class="logo">OLLAMA SPECS</span>
     <span style="margin-left:auto;font-size:.7rem;color:var(--fg3)">229 models · specs · benchmarks</span>
   </div>
 </div>
@@ -96,28 +96,32 @@
 </div>
 
 <div class="toolbar">
-  <input type="text" id="search" placeholder="Search models..." autocomplete="off">
+  <input type="text" id="search" placeholder="Search models, tags, or params..." autocomplete="off">
   <select id="sort">
-    <option value="name">Name</option><option value="param">Size</option><option value="mmlu">MMLU</option>
-    <option value="math">MATH</option><option value="he">HumanEval</option>
+    <option value="name">Sort: Name</option>
+    <option value="param">Sort: Params (largest)</option>
+    <option value="dl">Sort: Download Size</option>
+    <option value="mmlu">Sort: MMLU Score</option>
+    <option value="math">Sort: MATH Score</option>
+    <option value="he">Sort: HumanEval</option>
   </select>
-  <button id="togSpec">⚙️ My Specs</button>
+  <button id="togSpec">My Specs</button>
 </div>
 
 <div id="specPanel" style="max-width:1400px;margin:0 auto;padding:0 1rem .8rem;display:none">
   <div style="background:var(--c1);border:1px solid var(--c3);border-radius:8px;padding:.7rem 1rem">
     <div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;font-size:.8rem">
-      RAM <input type="number" id="myRam" value="32" min="1" max="512" style="width:60px">
-      VRAM <input type="number" id="myVram" value="12" min="0" max="128" style="width:60px">
-      Preferred <select id="prefGpu"><option value="any">Any</option><option value="cpu">CPU Only</option><option value="gpu">GPU Only</option></select>
-      Quant <select id="prefQuant"><option value="Q4_K_M">Q4_K_M</option><option value="Q5_K_M">Q5_K_M</option><option value="Q8_0">Q8_0</option><option value="FP16">FP16</option><option value="Q2_K">Q2_K</option></select>
+      <span>RAM</span> <input type="number" id="myRam" value="32" min="1" max="512" style="width:60px">
+      <span>VRAM</span> <input type="number" id="myVram" value="12" min="0" max="128" style="width:60px">
+      <span>Preferred</span> <select id="prefGpu"><option value="any">Any</option><option value="cpu">CPU Only</option><option value="gpu">GPU Only</option></select>
+      <span>Quant</span> <select id="prefQuant"><option value="Q4_K_M">Q4_K_M (balanced)</option><option value="Q2_K">Q2_K (smallest)</option><option value="Q5_K_M">Q5_K_M (better)</option><option value="Q8_0">Q8_0 (best)</option><option value="FP16">FP16 (full)</option></select>
     </div>
   </div>
 </div>
 
 <div class="chips" id="chips"></div>
 
-<div id="loading">⏳ Loading 229 models...</div>
+<div id="loading">Loading 229 models...</div>
 <div class="grid" id="grid"></div>
 
 <div class="comp" id="compBar">
@@ -146,9 +150,14 @@ const CS=["chat","code","vision","reasoning","math","medical","embedding","safet
 async function init(){
   try{
     const r=await fetch(DATA);
-    if(!r.ok)throw new Error(r.status);
+    if(!r.ok)throw new Error('HTTP '+r.status);
     data=await r.json();
-    data.forEach(d=>{d._mx=Math.max(...d.params.map(p=>parseFloat(p)||0)),d._mn=Math.min(...d.params.map(p=>{const v=parseFloat(p);return isNaN(v)?999:v}))});
+    data.forEach(d=>{
+      d._mx=Math.max(...d.params.map(p=>parseFloat(p)||0));
+      d._mn=Math.min(...d.params.map(p=>{const v=parseFloat(p);return isNaN(v)?999:v}));
+      const q4=d.tags.find(t=>t.quant==='Q4_K_M');
+      d._dl=q4?q4.size_gb:(d.tags[0]?d.tags[0].size_gb:0);
+    });
     fil=[...data];
     document.getElementById('loading').style.display='none';
     buildChips();upStats();draw();
@@ -164,7 +173,7 @@ function toggleChip(c){
   el.classList.toggle('on');chips.has(c)?chips.delete(c):chips.add(c);dofilter();
 }
 function upStats(){
-  const mmlu=data.filter(d=>'d' in d.benchmarks).length;
+  const mmlu=data.filter(d=>typeof (d.benchmarks||{}).MMLU==='number').length;
   document.getElementById('stats').innerHTML='<div class="stat"><div class="n">'+data.length+'</div><div class="l">Models</div></div><div class="stat"><div class="n">'+mmlu+'</div><div class="l">w/ MMLU</div></div><div class="stat"><div class="n">'+sel.length+'</div><div class="l">Comparing</div></div>';
 }
 function draw(){
@@ -183,23 +192,27 @@ function mkCard(m){
   const qq=document.getElementById('prefQuant').value;
   const vv=(m.vram_gb?.[qq])||0;
   const showSp=document.getElementById('specPanel').style.display!=='none';
-  const cmp=showSp?(mv>=vv?'<span class="ok">Runs</span>':'<span class="warn">Needs '+vv+'GB VRAM</span>'):'';
+  const cmp=showSp?(mv>=vv?'<span class="ok">'+vv+'GB VRAM</span>':'<span class="warn">Needs '+vv+'GB VRAM</span>'):'';
 
-  const r=m.requirements||{};
-  const rr=[];
+  const r=m.requirements||{},rr=[];
   if(r.min_ram)rr.push('<span>'+r.min_ram+' RAM min</span>');
   if(r.rec_vram)rr.push('<span>'+r.rec_vram+' VRAM rec</span>');
   if(r.gpu)rr.push('<span>'+(r.gpu==='either'?'CPU or GPU':r.gpu)+'</span>');
 
-  const tagRows=tgs.slice(0,6).map(t=>'<tr><td>'+esc(t.tag)+'</td><td class="sz">'+t.size_gb+' GB</td><td>'+esc(t.quant)+'</td></tr>').join('');
+  // Sort tags so Q4_K_M (default) is first, then others by size
+  const tagShow=tgs.slice().sort((a,b)=>{
+    if(a.quant==='Q4_K_M')return -1;if(b.quant==='Q4_K_M')return 1;
+    return a.size_gb-b.size_gb;
+  }).slice(0,6);
+  const tagRows=tagShow.map(t=>'<tr><td>'+esc(t.tag)+'</td><td class="sz">'+t.size_gb+' GB</td><td>'+esc(t.quant)+'</td></tr>').join('');
 
   return '<div class="card" data-name="'+esc(m.name)+'">'
     +'<div class="name">'+esc(m.name)+' <span class="ct">'+tgs.length+' tags</span></div>'
-    +'<div class="param">'+esc(m.params.join(', '))+'</div>'
+    +'<div class="param">Params: '+esc(m.params.join(', '))+(m._dl?' · Q4: '+m._dl+'GB':'')+'</div>'
     +'<div class="caps">'+caps+'</div>'
     +'<div class="bench">'+sc.join('')+'</div>'
     +'<div class="req">'+rr.join('')+(cmp?'</div><div class="req">'+cmp:'')+'</div>'
-    +'<table class="tags-table"><thead><tr><th>Tag</th><th>DL Size</th><th>Quant</th></tr></thead><tbody>'+tagRows+'</tbody></table>'
+    +'<table class="tags-table"><thead><tr><th>Tag</th><th>Download</th><th>Quant</th></tr></thead><tbody>'+tagRows+'</tbody></table>'
     +'<div class="rowbt"><button onclick="openModal(\''+esc(m.name)+'\')">Details</button>'
     +'<button class="'+(sel.includes(m.name)?'on':'')+'" onclick="toggleCompare(\''+esc(m.name)+'\')">Compare</button></div>'
     +'</div>';
@@ -210,7 +223,7 @@ function esc(s){return String(s).replace(/\u003c/g,'\u0026lt;').replace(/\u003e/
 function dofilter(){
   const q=document.getElementById('search').value.toLowerCase();
   fil=data.filter(m=>{
-    if(q&&!m.name.includes(q)&&!m.params.some(p=>p.toLowerCase().includes(q)))return false;
+    if(q&&!m.name.includes(q)&&!m.params.some(p=>p.toLowerCase().includes(q))&&!m.tags.some(t=>t.tag.toLowerCase().includes(q)))return false;
     for(const c of chips)if(!m.capabilities.includes(c))return false;
     const pg=document.getElementById('prefGpu').value;
     if(pg==='cpu'&&m.requirements?.gpu==='required')return false;
@@ -224,6 +237,7 @@ function dosort(){
   fil.sort((a,b)=>{
     if(by==='name')return a.name.localeCompare(b.name);
     if(by==='param')return b._mx-a._mx;
+    if(by==='dl')return b._dl-a._dl;
     const av=a.benchmarks?.[by],bv=b.benchmarks?.[by];
     if(typeof av==='number'&&typeof bv==='number')return bv-av;
     return a.name.localeCompare(b.name);
@@ -247,7 +261,7 @@ function toggleCompare(n){
 }
 function updateBar(){
   const bar=document.getElementById('compBar');bar.classList.toggle('on',sel.length>0);
-  document.getElementById('compItems').innerHTML=sel.map(n=>'<span class="itm">'+esc(n)+'<span class="x" onclick="toggleCompare(\''+esc(n)+'\')">×</span></span>').join('');
+  document.getElementById('compItems').innerHTML=sel.map(n=>'<span class="itm">'+esc(n)+'<span class="x" onclick="toggleCompare(\''+esc(n)+'\')">times;</span></span>').join('');
 }
 function clearCompare(){sel=[];updateBar();upStats();draw();}
 document.getElementById('compGo').addEventListener('click',showCompare);
@@ -266,8 +280,11 @@ function openModal(name){
   for(const k of Object.keys(b).sort())if(k!=='type')rows.push([k,b[k]]);
   rows.push(['Notes',m.requirements?.notes||'']);
 
-  const tgs=(m.tags||[]).map(t=>'<tr><td>'+esc(t.tag)+'</td><td class="sz">'+t.size_gb+' GB</td><td>'+esc(t.quant)+'</td></tr>').join('');
-  const tagTable='<h3 style="margin:1rem 0 .4rem;font-size:.85rem;color:var(--fg2)">Tags &amp; Download Sizes</h3><table class="tags-table" style="max-width:480px"><thead><tr><th>Tag</th><th>Size</th><th>Quant</th></tr></thead><tbody>'+tgs+'</tbody></table>';
+  const tgs=(m.tags||[]).slice().sort((a,b)=>{
+    if(a.quant==='Q4_K_M')return -1;if(b.quant==='Q4_K_M')return 1;
+    return a.size_gb-b.size_gb;
+  }).map(t=>'<tr><td>'+esc(t.tag)+'</td><td class="sz">'+t.size_gb+' GB</td><td>'+esc(t.quant)+'</td></tr>').join('');
+  const tagTable='<h3 style="margin:1rem 0 .4rem;font-size:.85rem;color:var(--fg2)">Tags &amp; Download Sizes</h3><table class="tags-table" style="max-width:480px"><thead><tr><th>Tag</th><th>Download</th><th>Quant</th></tr></thead><tbody>'+tgs+'</tbody></table>';
 
   document.getElementById('modalTitle').innerHTML='<h2>'+esc(m.name)+'<button class="close" onclick="closeModal()">&times;</button></h2>';
   document.getElementById('modalBody').innerHTML='<dl>'+rows.map(([k,v])=>'<dt>'+esc(k)+'</dt><dd>'+esc(v)+'</dd>').join('')+'</dl>'+tagTable;
@@ -287,8 +304,8 @@ function showCompare(){
   rows.push(['Rec RAM',...ms.map(m=>m.requirements?.rec_ram||'—')]);
   rows.push(['Rec VRAM',...ms.map(m=>m.requirements?.rec_vram||'—')]);
   rows.push(['GPU',...ms.map(m=>m.requirements?.gpu==='either'?'CPU/GPU':m.requirements?.gpu||'—')]);
-  rows.push(['Smallest DL',...ms.map(m=>{const t=m.tags?.[0];return t?t.tag+' ('+t.size_gb+'GB)':'—';})]);
-  rows.push(['Default Q4 DL',...ms.map(m=>{const t=m.tags?.find(x=>x.quant==='Q4_K_M');return t?t.tag+' ('+t.size_gb+'GB)':'—';})]);
+  rows.push(['Smallest DL',...ms.map(m=>{const t=m.tags[0];return t?t.tag+' ('+t.size_gb+'GB)':'—';})]);
+  rows.push(['Default Q4',...ms.map(m=>{const t=m.tags.find(x=>x.quant==='Q4_K_M');return t?t.tag+' ('+t.size_gb+'GB)':'—';})]);
   rows.push(['VRAM Q4',...ms.map(m=>(m.vram_gb?.Q4_K_M||0)+' GB')]);
   for(const k of Array.from(keys).sort())rows.push([k,...ms.map(m=>m.benchmarks?.[k]??'—')]);
 
