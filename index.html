@@ -342,7 +342,7 @@ function showModal(name){
   // Tag size table in modal
   const ttags=m.tags||[];
   const tagTable=`
-    <h3 style="margin:1.2rem 0 .5rem;font-size:.9rem;color:var(--fg2)">Tags &amp;amp; Download Sizes</h3>
+    <h3 style="margin:1.2rem 0 .5rem;font-size:.9rem;color:var(--fg2)">Tags &amp; Download Sizes</h3>
     <table class="tag-table" style="max-width:500px">
       <thead><tr><th>Tag</th><th>Size</th><th>Quant</th></tr></thead>
       <tbody>${ttags.map(t=>`<tr><td>${t.tag}</td><td class="sz">${t.size_gb} GB</td><td>${t.quant}</td></tr>`).join('')}</tbody>
@@ -380,7 +380,7 @@ function showCompare(){
   const html=`<h2>Comparison</h2>
     <div style="overflow-x:auto">
       <div class="compare-grid" style="grid-template-columns:150px repeat(${ms.length},minmax(150px,1fr))">
-        ${rows.map(r=>r.map((c,j)=>`&lt;div style="padding:.45rem .5rem;border-bottom:1px solid var(--bg3);font-size:.78rem" class="${j===0?'h':(typeof c==='number'&&c>=70?'val-good':'cell')}"&gt;${c}&lt;/div&gt;`).join('')).join('')}
+`${rows.map(r=>r.map((c,j)=>'<div style="padding:.45rem .5rem;border-bottom:1px solid var(--bg3);font-size:.78rem" class="'+(j===0?'h':(typeof c==='number'&&c>=70?'val-good':'cell'))+'">'+c+'</div>').join('')).join('')}`
       </div>
     </div>`;
   document.getElementById('modalBody').innerHTML=html;
