@@ -377,12 +377,11 @@ function showCompare(){
 
   for(const k of Array.from(keys).sort())rows.push([k,...ms.map(m=>m.benchmarks?.[k]??'—')]);
 
-  const html=`<h2>Comparison</h2>
-    <div style="overflow-x:auto">
-      <div class="compare-grid" style="grid-template-columns:150px repeat(${ms.length},minmax(150px,1fr))">
-`${rows.map(r=>r.map((c,j)=>'<div style="padding:.45rem .5rem;border-bottom:1px solid var(--bg3);font-size:.78rem" class="'+(j===0?'h':(typeof c==='number'&&c>=70?'val-good':'cell'))+'">'+c+'</div>').join('')).join('')}`
-      </div>
-    </div>`;
+  const html='<h2>Comparison</h2>'+
+    '<div style="overflow-x:auto">'+
+    '<div class="compare-grid" style="grid-template-columns:150px repeat('+ms.length+',minmax(150px,1fr))">'+
+    rows.map(r=>r.map((c,j)=>'<div style="padding:.45rem .5rem;border-bottom:1px solid var(--bg3);font-size:.78rem" class="'+(j===0?'h':(typeof c==='number'&&c>=70?'val-good':'cell'))+'">'+c+'</div>').join('')).join('')+
+    '</div></div>';
   document.getElementById('modalBody').innerHTML=html;
   document.getElementById('modal').classList.add('on');
 }
