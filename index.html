@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Ollama Model Specs — 229 Models with Sizes &amp; Requirements</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -21,8 +21,9 @@
 .stat .l{font-size:.65rem;color:var(--fg3);text-transform:uppercase;letter-spacing:.05em}
 .toolbar{max-width:1400px;margin:0 auto;padding:.8rem 1rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
 .toolbar input,.toolbar select,.toolbar button{background:var(--c2);border:1px solid var(--c3);border-radius:8px;color:var(--fg);padding:.5rem .8rem;font-size:.8rem;outline:none}
-.toolbar input{flex:1 1 260px}
+.toolbar input{flex:1 1 260px;min-height:36px}
 .toolbar button:hover,.toolbar select:hover{border-color:var(--a)}
+.toolbar button:active{background:var(--c3)}
 .toolbar button.on{background:var(--a);color:#000;border-color:var(--a)}
 .chips{max-width:1400px;margin:0 auto;padding:0 1rem .8rem;display:flex;flex-wrap:wrap;gap:.3rem}
 .chip{background:var(--c2);border:1px solid var(--c3);border-radius:6px;padding:.2rem .5rem;font-size:.7rem;cursor:pointer;color:var(--fg2)}
@@ -55,20 +56,20 @@
 .req .ok{color:var(--a);background:rgba(66,245,161,.08)}
 .req .warn{color:#ff6b81;background:rgba(255,71,87,.08)}
 .rowbt{display:flex;gap:.3rem;margin-top:.5rem}
-.rowbt button{flex:1;padding:.35rem;font-size:.7rem;border:1px solid var(--c3);background:var(--c2);color:var(--fg2);border-radius:5px;cursor:pointer}
+.rowbt button{flex:1;padding:.4rem;font-size:.7rem;border:1px solid var(--c3);background:var(--c2);color:var(--fg2);border-radius:5px;cursor:pointer;min-height:36px}
 .rowbt button:hover{border-color:var(--a);color:var(--a)}
 .rowbt button.on{background:var(--a);color:#000;border-color:var(--a)}
-.comp{position:fixed;bottom:0;left:0;right:0;background:var(--c1);border-top:1px solid var(--c3);padding:.6rem 1rem;display:none;align-items:center;gap:.5rem;z-index:200}
+.comp{position:fixed;bottom:0;left:0;right:0;background:var(--c1);border-top:1px solid var(--c3);padding:.6rem 1rem;display:none;align-items:center;gap:.5rem;z-index:200;max-height:40vh;overflow-y:auto}
 .comp.on{display:flex}
 .comp .items{display:flex;gap:.3rem;flex-wrap:wrap}
 .comp .itm{background:var(--c2);padding:.2rem .4rem;border-radius:5px;font-size:.7rem}
 .comp .itm .x{cursor:pointer;margin-left:.3rem;color:var(--fg3)}
-.comp .btn{padding:.4rem .8rem;background:var(--a);color:#000;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-size:.75rem}
+.comp .btn{padding:.4rem .8rem;background:var(--a);color:#000;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-size:.75rem;min-height:36px}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:none;justify-content:center;align-items:flex-start;padding-top:5vh;overflow-y:auto}
 .modal.on{display:flex}
 .mdl{background:var(--c1);border:1px solid var(--c3);border-radius:12px;max-width:920px;width:94%;padding-bottom:1rem;margin-bottom:4vh}
 .mdl h2{margin:0;padding:1rem;border-bottom:1px solid var(--c3);font-size:1rem}
-.mdl .close{float:right;background:none;border:none;color:var(--fg3);font-size:1.5rem;cursor:pointer;margin:-.5rem 0 0}
+.mdl .close{float:right;background:none;border:none;color:var(--fg3);font-size:1.5rem;cursor:pointer;margin:-.5rem 0 0;padding:0 .2rem}
 .mdl-body{padding:1rem;font-size:.82rem}
 .mdl-body dt{color:var(--fg3);font-weight:600;float:left;width:130px}
 .mdl-body dd{margin-left:140px;margin-bottom:.4rem}
@@ -78,7 +79,29 @@
 .cmptable .g{color:var(--a);font-weight:700}
 .footer{text-align:center;padding:2rem 1rem;color:var(--fg3);font-size:.7rem;border-top:1px solid var(--c3);margin-top:2rem}
 #loading{text-align:center;padding:2rem;color:var(--fg3)}
-@media(max-width:640px){.grid{grid-template-columns:1fr}}
+
+@media(max-width:640px){
+.grid{grid-template-columns:1fr}
+.hero h1{font-size:1.5rem}
+.toolbar{padding:.6rem}
+.toolbar input,.toolbar select,.toolbar button{font-size:16px;-webkit-appearance:none}
+.card{padding:.7rem}
+.card .name{font-size:.95rem}
+.card .param{font-size:.7rem}
+.card .caps span{font-size:.7rem;padding:.1rem .3rem}
+.chip{font-size:.8rem;padding:.2rem .5rem}
+.bench .s{font-size:.7rem}
+.req span{font-size:.7rem}
+.rowbt button{font-size:.8rem;min-height:44px}
+.tags-table{font-size:.78rem}
+.mdl-body dt{float:none;width:auto;display:block;margin-bottom:.15rem}
+.mdl-body dd{margin-left:0;margin-bottom:.8rem}
+.comp{max-height:45vh;padding:.5rem}
+.comp .btn{min-height:44px}
+.stat .n{font-size:1rem}
+.stat .l{font-size:.6rem}
+.mdl{max-height:85vh;overflow-y:auto}
+}
 </style>
 </head>
 <body>
@@ -98,12 +121,17 @@
 <div class="toolbar">
   <input type="text" id="search" placeholder="Search models, tags, or params..." autocomplete="off">
   <select id="sort">
-    <option value="name">Sort: Name</option>
-    <option value="param">Sort: Params (largest)</option>
-    <option value="dl">Sort: Download Size</option>
-    <option value="mmlu">Sort: MMLU Score</option>
-    <option value="math">Sort: MATH Score</option>
-    <option value="he">Sort: HumanEval</option>
+    <option value="name">Sort: Name A→Z</option>
+    <option value="name_desc">Sort: Name Z→A</option>
+    <option value="param_desc">Sort: Params (largest)</option>
+    <option value="param_asc">Sort: Params (smallest)</option>
+    <option value="dl_desc">Sort: Download (largest)</option>
+    <option value="dl_asc">Sort: Download (smallest)</option>
+    <option value="mmlu">Sort: MMLU (highest)</option>
+    <option value="math">Sort: MATH (highest)</option>
+    <option value="he">Sort: HumanEval (highest)</option>
+    <option value="arena">Sort: Arena Elo (highest)</option>
+    <option value="gpqa">Sort: GPQA (highest)</option>
   </select>
   <button id="togSpec">My Specs</button>
 </div>
@@ -147,14 +175,21 @@ const chips=new Set();
 const CL={vision:"Vision",code:"Code",math:"Math",reasoning:"Reasoning",chat:"Chat",medical:"Medical",embedding:"Embedding",safety:"Safety",uncensored:"Uncensored",ocr:"OCR","tool-use":"Tool Use",moemodel:"MoE",small:"Small"};
 const CS=["chat","code","vision","reasoning","math","medical","embedding","safety","tool-use","moemodel","small","uncensored"];
 
+function parseParam(p){
+  const m=p.match(/^(\d+(?:\.\d+)?)x(\d+(?:\.\d+)?)/i);
+  if(m)return parseFloat(m[1])*parseFloat(m[2]);
+  const v=parseFloat(p);
+  return isNaN(v)?0:v;
+}
+
 async function init(){
   try{
     const r=await fetch(DATA);
     if(!r.ok)throw new Error('HTTP '+r.status);
     data=await r.json();
     data.forEach(d=>{
-      d._mx=Math.max(...d.params.map(p=>parseFloat(p)||0));
-      d._mn=Math.min(...d.params.map(p=>{const v=parseFloat(p);return isNaN(v)?999:v}));
+      d._mx=Math.max(...d.params.map(parseParam));
+      d._mn=Math.min(...d.params.map(parseParam));
       const q4=d.tags.find(t=>t.quant==='Q4_K_M');
       d._dl=q4?q4.size_gb:(d.tags[0]?d.tags[0].size_gb:0);
     });
@@ -195,11 +230,10 @@ function mkCard(m){
   const cmp=showSp?(mv>=vv?'<span class="ok">'+vv+'GB VRAM</span>':'<span class="warn">Needs '+vv+'GB VRAM</span>'):'';
 
   const r=m.requirements||{},rr=[];
-  if(r.min_ram)rr.push('<span>'+r.min_ram+' RAM min</span>');
-  if(r.rec_vram)rr.push('<span>'+r.rec_vram+' VRAM rec</span>');
-  if(r.gpu)rr.push('<span>'+(r.gpu==='either'?'CPU or GPU':r.gpu)+'</span>');
+  if(r.min_ram&&r.min_ram!=='?')rr.push('<span>'+r.min_ram+' RAM min</span>');
+  if(r.rec_vram&&r.rec_vram!=='?')rr.push('<span>'+r.rec_vram+' VRAM rec</span>');
+  if(r.gpu&&r.gpu!=='?')rr.push('<span>'+(r.gpu==='either'?'CPU or GPU':r.gpu)+'</span>');
 
-  // Sort tags so Q4_K_M (default) is first, then others by size
   const tagShow=tgs.slice().sort((a,b)=>{
     if(a.quant==='Q4_K_M')return -1;if(b.quant==='Q4_K_M')return 1;
     return a.size_gb-b.size_gb;
@@ -207,8 +241,8 @@ function mkCard(m){
   const tagRows=tagShow.map(t=>'<tr><td>'+esc(t.tag)+'</td><td class="sz">'+t.size_gb+' GB</td><td>'+esc(t.quant)+'</td></tr>').join('');
 
   return '<div class="card" data-name="'+esc(m.name)+'">'
-    +'<div class="name">'+esc(m.name)+' <span class="ct">'+tgs.length+' tags</span></div>'
-    +'<div class="param">Params: '+esc(m.params.join(', '))+(m._dl?' · Q4: '+m._dl+'GB':'')+'</div>'
+    +'<div class="name">'+esc(m.name)+' <span class="ct">'+m.params.join(', ')+'</span></div>'
+    +'<div class="param">'+tgs.length+' tags · Q4: '+m._dl+'GB · Q4 VRAM: '+m.vram_gb.Q4_K_M+'GB</div>'
     +'<div class="caps">'+caps+'</div>'
     +'<div class="bench">'+sc.join('')+'</div>'
     +'<div class="req">'+rr.join('')+(cmp?'</div><div class="req">'+cmp:'')+'</div>'
@@ -234,12 +268,23 @@ function dofilter(){
 }
 function dosort(){
   const by=document.getElementById('sort').value;
+  let key,desc;
+  if(by==='name'){key='name';desc=false;}
+  else if(by==='name_desc'){key='name';desc=true;}
+  else if(by==='param_desc'){key='param';desc=true;}
+  else if(by==='param_asc'){key='param';desc=false;}
+  else if(by==='dl_desc'){key='dl';desc=true;}
+  else if(by==='dl_asc'){key='dl';desc=false;}
+  else{key=by.replace(/_desc/,'');desc=true;}
   fil.sort((a,b)=>{
-    if(by==='name')return a.name.localeCompare(b.name);
-    if(by==='param')return b._mx-a._mx;
-    if(by==='dl')return b._dl-a._dl;
-    const av=a.benchmarks?.[by],bv=b.benchmarks?.[by];
-    if(typeof av==='number'&&typeof bv==='number')return bv-av;
+    if(key==='name'){
+      const r=a.name.localeCompare(b.name);
+      return desc?-r:r;
+    }
+    if(key==='param')return desc?b._mx-a._mx:a._mx-b._mx;
+    if(key==='dl')return desc?b._dl-a._dl:a._dl-b._dl;
+    const av=a.benchmarks?.[key],bv=b.benchmarks?.[key];
+    if(typeof av==='number'&&typeof bv==='number')return desc?bv-av:av-bv;
     return a.name.localeCompare(b.name);
   });
 }
@@ -261,7 +306,7 @@ function toggleCompare(n){
 }
 function updateBar(){
   const bar=document.getElementById('compBar');bar.classList.toggle('on',sel.length>0);
-  document.getElementById('compItems').innerHTML=sel.map(n=>'<span class="itm">'+esc(n)+'<span class="x" onclick="toggleCompare(\''+esc(n)+'\')">times;</span></span>').join('');
+  document.getElementById('compItems').innerHTML=sel.map(n=>'<span class="itm">'+esc(n)+'<span class="x" onclick="toggleCompare(\''+esc(n)+'\')">×</span></span>').join('');
 }
 function clearCompare(){sel=[];updateBar();upStats();draw();}
 document.getElementById('compGo').addEventListener('click',showCompare);
@@ -274,10 +319,13 @@ function openModal(name){
   rows.push(['Min RAM',m.requirements?.min_ram||'—']);rows.push(['Rec RAM',m.requirements?.rec_ram||'—']);
   rows.push(['Min VRAM',m.requirements?.min_vram||'—']);rows.push(['Rec VRAM',m.requirements?.rec_vram||'—']);
   rows.push(['GPU',m.requirements?.gpu==='either'?'CPU or GPU':m.requirements?.gpu||'—']);
+  if(b.MMLU)rows.push(['MMLU',b.MMLU]);if(b.MATH)rows.push(['MATH',b.MATH]);if(b.HE)rows.push(['HumanEval',b.HE]);
+  if(b.GPQA)rows.push(['GPQA',b.GPQA]);if(b.Arena)rows.push(['Arena Elo',b.Arena]);
+  if(b.BBH)rows.push(['BBH',b.BBH]);if(b.IF)rows.push(['IF Eval',b.IF]);if(b['MMLU-Pro'])rows.push(['MMLU-Pro',b['MMLU-Pro']]);
+  if(b.SWE)rows.push(['SWE-Bench',b.SWE]);
   rows.push(['VRAM Q2_K',(m.vram_gb?.Q2_K||0)+' GB']);rows.push(['VRAM Q4_K_M',(m.vram_gb?.Q4_K_M||0)+' GB']);
   rows.push(['VRAM Q5_K_M',(m.vram_gb?.Q5_K_M||0)+' GB']);rows.push(['VRAM Q8_0',(m.vram_gb?.Q8_0||0)+' GB']);
   rows.push(['VRAM FP16',(m.vram_gb?.FP16||0)+' GB']);
-  for(const k of Object.keys(b).sort())if(k!=='type')rows.push([k,b[k]]);
   rows.push(['Notes',m.requirements?.notes||'']);
 
   const tgs=(m.tags||[]).slice().sort((a,b)=>{
@@ -286,7 +334,7 @@ function openModal(name){
   }).map(t=>'<tr><td>'+esc(t.tag)+'</td><td class="sz">'+t.size_gb+' GB</td><td>'+esc(t.quant)+'</td></tr>').join('');
   const tagTable='<h3 style="margin:1rem 0 .4rem;font-size:.85rem;color:var(--fg2)">Tags &amp; Download Sizes</h3><table class="tags-table" style="max-width:480px"><thead><tr><th>Tag</th><th>Download</th><th>Quant</th></tr></thead><tbody>'+tgs+'</tbody></table>';
 
-  document.getElementById('modalTitle').innerHTML='<h2>'+esc(m.name)+'<button class="close" onclick="closeModal()">&times;</button></h2>';
+  document.getElementById('modalTitle').innerHTML='<h2>'+esc(m.name)+'<button class="close" onclick="closeModal()">×</button></h2>';
   document.getElementById('modalBody').innerHTML='<dl>'+rows.map(([k,v])=>'<dt>'+esc(k)+'</dt><dd>'+esc(v)+'</dd>').join('')+'</dl>'+tagTable;
   document.getElementById('modal').classList.add('on');
 }
@@ -310,7 +358,7 @@ function showCompare(){
   for(const k of Array.from(keys).sort())rows.push([k,...ms.map(m=>m.benchmarks?.[k]??'—')]);
 
   const cols=ms.length;
-  const html=['<h2>Comparison<button class="close" onclick="closeModal()">&times;</button></h2><div class="cmptable" style="grid-template-columns:140px repeat('+cols+',1fr)">'];
+  const html=['<h2>Comparison<button class="close" onclick="closeModal()">×</button></h2><div class="cmptable" style="grid-template-columns:140px repeat('+cols+',1fr)">'];
   for(const r of rows){
     for(let j=0;j<r.length;j++){
       const v=r[j];
