@@ -3,386 +3,307 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ollama Model Specs — The Ollama Model Database</title>
+<title>Ollama Model Specs — 229 Models with Sizes &amp; Requirements</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root { --bg0:#05080f;--bg1:#0c1020;--bg2:#121830;--bg3:#1b2440;--bg4:#232e50;
-  --fg:#d8def0;--fg2:#99a0bc;--fg3:#586390;
-  --accent:#42f5a1;--accent2:#f2a900;--danger:#ff4757;--info:#3b82f6;--purple:#a855f7;
-  --ramp:42,245,161;
-  --shadow:0 8px 32px rgba(0,0,0,.45);
-}
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;background:var(--bg0);color:var(--fg);font-family:'Inter',system-ui,sans-serif;scroll-behavior:smooth}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:4px}
-
-.header{background:var(--bg1);border-bottom:1px solid var(--bg3);padding:.6rem 1.2rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
-.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-.header .logo{font-weight:800;font-size:1.15rem;color:var(--accent);display:flex;align-items:center;gap:.4rem}
-.header .logo svg{width:24px;height:24px;fill:var(--accent)}
-.header .subtitle{font-size:.72rem;color:var(--fg3);margin-left:auto;text-transform:uppercase;letter-spacing:.05em}
-
-.hero{padding:2.5rem 1rem 1.5rem;text-align:center;background:linear-gradient(180deg,var(--bg1) 0%,var(--bg0) 100%)}
-.hero h1{font-size:2.2rem;font-weight:800;margin:0 0 .3rem;background:linear-gradient(135deg,#fff,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{color:var(--fg2);font-size:.95rem;margin:0 auto 1.2rem;max-width:540px}
-
-.toolbar{max-width:1400px;margin:0 auto;padding:0 1rem 1rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
-.search-wrap{flex:1 1 280px;position:relative}
-.search-wrap input{width:100%;padding:.65rem 2.5rem .65rem 1rem;background:var(--bg2);border:1px solid var(--bg3);border-radius:10px;color:var(--fg);font-size:.9rem;outline:none;transition:.2s}
-.search-wrap input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(var(--ramp),.1)}
-.search-wrap .clear{position:absolute;right:.6rem;top:50%;transform:translateY(-50%);background:transparent;border:none;color:var(--fg3);cursor:pointer;font-size:1.1rem}
-.toolbar select,.toolbar button{padding:.55rem .85rem;background:var(--bg2);border:1px solid var(--bg3);border-radius:8px;color:var(--fg);font-size:.82rem;cursor:pointer;transition:.2s}
-.toolbar button:hover,.toolbar select:hover{border-color:var(--accent)}
-.toolbar .active-btn{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
-
-.chip-row{display:flex;flex-wrap:wrap;gap:.35rem;padding:0 1rem .6rem;max-width:1400px;margin:0 auto}
-.chip{padding:.3rem .55rem;background:var(--bg2);border:1px solid var(--bg3);border-radius:6px;font-size:.72rem;color:var(--fg2);cursor:pointer;transition:.2s}
-.chip:hover,.chip.on{background:rgba(var(--ramp),.12);border-color:var(--accent);color:var(--accent)}
-
-.spec-checker{max-width:1400px;margin:.4rem auto 0;padding:0 1rem}
-.spec-checker-inner{background:var(--bg1);border:1px solid var(--bg3);border-radius:10px;padding:.8rem 1rem}
-.spec-checker h3{margin:0 0 .5rem;font-size:.85rem;color:var(--fg2)}
-.spec-grid{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
-.spec-grid label{font-size:.78rem;color:var(--fg3)}
-.spec-grid input,.spec-grid select{padding:.4rem .5rem;background:var(--bg2);border:1px solid var(--bg3);border-radius:6px;color:var(--fg);font-size:.78rem;max-width:80px}
-.spec-grid .hint{font-size:.7rem;color:var(--fg3);margin-left:auto}
-
-.main{max-width:1400px;margin:1rem auto;padding:0 1rem}
-
-.stats{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:0 0 1rem}
-.stat{text-align:center;padding:.6rem 1rem;background:var(--bg1);border:1px solid var(--bg3);border-radius:10px;min-width:80px}
-.stat .n{font-size:1.2rem;font-weight:700;color:var(--accent)}
-.stat .l{font-size:.68rem;color:var(--fg3);text-transform:uppercase;letter-spacing:.05em;margin-top:.1rem}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem}
-.card{background:var(--bg1);border:1px solid var(--bg3);border-radius:12px;padding:1rem;transition:.2s;position:relative}
-.card:hover{border-color:var(--bg4);box-shadow:var(--shadow)}
-.card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
-.card .name{font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:.3rem}
-.card .name .tag-count{font-size:.65rem;font-weight:500;color:var(--bg0);background:var(--accent2);padding:.06rem .3rem;border-radius:4px}
-.card .params{font-size:.78rem;color:var(--fg2);margin:.15rem 0 .3rem}
-.card .caps{display:flex;flex-wrap:wrap;gap:.25rem;margin:.3rem 0}
-.card .caps span{font-size:.65rem;padding:.12rem .32rem;border-radius:4px;background:var(--bg2);border:1px solid var(--bg3);color:var(--fg2)}
-.card .caps span.vision{background:rgba(59,130,246,.12);color:#60a5fa;border-color:#1e40af}
-.card .caps span.code{background:rgba(168,85,247,.12);color:#c084fc;border-color:#6b21a8}
-.card .caps span.reasoning{background:rgba(242,169,0,.12);color:#f2a900;border-color:#92400e}
-.card .caps span.chat{background:rgba(66,245,161,.08);color:var(--accent);border-color:#15803d}
-.card .caps span.safety{background:rgba(255,71,87,.12);color:#ff6b81;border-color:#991b1b}
-.card .caps span.embedding{background:rgba(6,182,212,.12);color:#22d3ee;border-color:#164e63}
-
-.bench{display:flex;flex-wrap:wrap;gap:.3rem;margin:.3rem 0}
-.bench .score{font-size:.68rem;padding:.12rem .35rem;border-radius:4px;background:var(--bg2);color:var(--fg2);font-family:'JetBrains Mono',monospace}
-.bench .score.good{background:rgba(66,245,161,.08);color:var(--accent)}
-.bench .score.great{background:rgba(66,245,161,.16);color:var(--accent);border:1px solid rgba(66,245,161,.25)}
-.bench .score.mid{background:rgba(242,169,0,.08);color:var(--accent2)}
-
-/* TAG TABLE */
-.tag-table{width:100%;border-collapse:collapse;margin:.4rem 0;font-size:.72rem;font-family:'JetBrains Mono',monospace}
-.tag-table th{text-align:left;padding:.25rem .4rem;color:var(--fg3);border-bottom:1px solid var(--bg3);font-weight:500}
-.tag-table td{padding:.25rem .4rem;border-bottom:1px solid var(--bg2)}
-.tag-table tr:hover td{background:var(--bg2)}
-.tag-table .sz{color:var(--accent);font-weight:700}
-
-.req-row{display:flex;flex-wrap:wrap;gap:.3rem;margin:.35rem 0}
-.req-row span{font-size:.68rem;padding:.12rem .35rem;border-radius:4px;background:var(--bg2);color:var(--fg2)}
-.req-row span.warn{color:#ff6b81;background:rgba(255,71,87,.08)}
-.req-row span.ok{color:var(--accent);background:rgba(66,245,161,.08)}
-
-.actions{display:flex;gap:.4rem;margin-top:.5rem}
-.actions button{flex:1;padding:.4rem;font-size:.7rem;border-radius:6px;border:1px solid var(--bg3);background:var(--bg2);color:var(--fg2);cursor:pointer;transition:.2s}
-.actions button:hover{border-color:var(--accent);color:var(--accent)}
-.actions .compare-btn.on{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
-
-.comp-bar{position:fixed;bottom:0;left:0;right:0;background:var(--bg1);border-top:1px solid var(--bg3);padding:.7rem 1rem;z-index:200;display:none;align-items:center;gap:.6rem;flex-wrap:wrap}
-.comp-bar.on{display:flex}
-.comp-bar .title{font-weight:700;font-size:.85rem}
-.comp-bar .items{display:flex;gap:.3rem;flex-wrap:wrap}
-.comp-bar .items .itm{background:var(--bg2);padding:.25rem .5rem;border-radius:6px;font-size:.72rem;display:flex;align-items:center;gap:.3rem}
-.comp-bar .items .itm .x{cursor:pointer;color:var(--fg3)}
-.comp-bar .btn{padding:.45rem 1rem;background:var(--accent);color:#000;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:.8rem}
-.comp-bar .btn:hover{background:#32d890}
-.comp-bar .clear{color:var(--fg3);cursor:pointer;font-size:.75rem;margin-left:auto}
-
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:none;justify-content:center;align-items:flex-start;padding-top:4vh;overflow-y:auto}
+:root{--bg:#05080f;--c1:#0c1020;--c2:#121830;--c3:#1b2440;--fg:#d8def0;--fg2:#99a0bc;--fg3:#586390;--a:#42f5a1;--a2:#f2a900;}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,sans-serif;scrollbar-width:thin;scrollbar-color:var(--c3) var(--bg)}
+.sticky{position:sticky;top:0;background:var(--c1);border-bottom:1px solid var(--c3);padding:.6rem 1rem;z-index:100;backdrop-filter:blur(8px)}
+.sticky-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.sticky .logo{font-weight:800;color:var(--a);font-size:1.1rem}
+.hero{text-align:center;padding:2rem 1rem 1rem;background:var(--c1)}
+.hero h1{font-size:2rem;font-weight:800;margin:0;background:linear-gradient(135deg,#fff,var(--a));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--fg2);font-size:.9rem;margin:.4rem auto;max-width:500px}
+.stats{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin:.5rem 0}
+.stat{background:var(--c2);border:1px solid var(--c3);border-radius:8px;padding:.5rem 1rem;text-align:center;min-width:80px}
+.stat .n{font-size:1.1rem;font-weight:700;color:var(--a)}
+.stat .l{font-size:.65rem;color:var(--fg3);text-transform:uppercase;letter-spacing:.05em}
+.toolbar{max-width:1400px;margin:0 auto;padding:.8rem 1rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.toolbar input,.toolbar select,.toolbar button{background:var(--c2);border:1px solid var(--c3);border-radius:8px;color:var(--fg);padding:.5rem .8rem;font-size:.8rem;outline:none}
+.toolbar input{flex:1 1 260px}
+.toolbar button:hover,.toolbar select:hover{border-color:var(--a)}
+.toolbar button.on{background:var(--a);color:#000;border-color:var(--a)}
+.chips{max-width:1400px;margin:0 auto;padding:0 1rem .8rem;display:flex;flex-wrap:wrap;gap:.3rem}
+.chip{background:var(--c2);border:1px solid var(--c3);border-radius:6px;padding:.2rem .5rem;font-size:.7rem;cursor:pointer;color:var(--fg2)}
+.chip.on{border-color:var(--a);color:var(--a);background:rgba(66,245,161,.08)}
+.grid{max-width:1400px;margin:0 auto;padding:1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem}
+.card{background:var(--c1);border:1px solid var(--c3);border-radius:10px;padding:.9rem;transition:.2s}
+.card:hover{border-color:var(--c3);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.card .name{font-weight:700;font-size:1rem;display:flex;align-items:center;gap:.35rem}
+.card .name .ct{font-size:.6rem;background:var(--a2);color:#000;padding:.04rem .3rem;border-radius:4px;font-weight:600}
+.card .param{font-size:.75rem;color:var(--fg2);margin:.1rem 0 .3rem}
+.card .caps{display:flex;flex-wrap:wrap;gap:.2rem}
+.card .caps span{font-size:.6rem;padding:.08rem .25rem;border-radius:3px;background:var(--c2);border:1px solid var(--c3);color:var(--fg2)}
+.card .caps .code{border-color:#6b21a8;color:#c084fc}
+.card .caps .vision{border-color:#1e40af;color:#60a5fa}
+.card .caps .reasoning{border-color:#92400e;color:var(--a2)}
+.card .caps .chat{border-color:#15803d;color:var(--a)}
+.card .caps .safety{border-color:#991b1b;color:#ff6b81}
+.card .caps .embedding{border-color:#164e63;color:#22d3ee}
+.bench{display:flex;flex-wrap:wrap;gap:.25rem;margin:.3rem 0}
+.bench .s{font-size:.65rem;padding:.1rem .3rem;border-radius:3px;background:var(--c2);font-family:'JetBrains Mono',monospace;color:var(--fg2)}
+.bench .s.g{color:var(--a);background:rgba(66,245,161,.08)}
+.bench .s.m{color:var(--a2);background:rgba(242,169,0,.08)}
+.tags-table{width:100%;border-collapse:collapse;font-size:.68rem;font-family:'JetBrains Mono',monospace;margin:.4rem 0}
+.tags-table th{text-align:left;color:var(--fg3);border-bottom:1px solid var(--c3);padding:.15rem .3rem;font-weight:500}
+.tags-table td{border-bottom:1px solid var(--c2);padding:.15rem .3rem}
+.tags-table .sz{color:var(--a);font-weight:700}
+.tags-table tr:hover td{background:var(--c2)}
+.req{display:flex;flex-wrap:wrap;gap:.3rem;margin:.25rem 0}
+.req span{font-size:.65rem;padding:.08rem .3rem;border-radius:3px;background:var(--c2)}
+.req .ok{color:var(--a);background:rgba(66,245,161,.08)}
+.req .warn{color:#ff6b81;background:rgba(255,71,87,.08)}
+.rowbt{display:flex;gap:.3rem;margin-top:.5rem}
+.rowbt button{flex:1;padding:.35rem;font-size:.7rem;border:1px solid var(--c3);background:var(--c2);color:var(--fg2);border-radius:5px;cursor:pointer}
+.rowbt button:hover{border-color:var(--a);color:var(--a)}
+.rowbt button.on{background:var(--a);color:#000;border-color:var(--a)}
+.comp{position:fixed;bottom:0;left:0;right:0;background:var(--c1);border-top:1px solid var(--c3);padding:.6rem 1rem;display:none;align-items:center;gap:.5rem;z-index:200}
+.comp.on{display:flex}
+.comp .items{display:flex;gap:.3rem;flex-wrap:wrap}
+.comp .itm{background:var(--c2);padding:.2rem .4rem;border-radius:5px;font-size:.7rem}
+.comp .itm .x{cursor:pointer;margin-left:.3rem;color:var(--fg3)}
+.comp .btn{padding:.4rem .8rem;background:var(--a);color:#000;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-size:.75rem}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:none;justify-content:center;align-items:flex-start;padding-top:5vh;overflow-y:auto}
 .modal.on{display:flex}
-.modal-box{background:var(--bg1);border:1px solid var(--bg3);border-radius:14px;max-width:960px;width:94%;margin-bottom:4vh;position:relative}
-.modal-box h2{margin:0;padding:1rem 1.2rem;font-size:1.1rem;border-bottom:1px solid var(--bg3);display:flex;align-items:center;gap:.4rem}
-.modal-close{position:absolute;right:1rem;top:.9rem;background:transparent;border:none;color:var(--fg3);font-size:1.5rem;cursor:pointer}
-.modal-body{padding:1.2rem}
-.compare-grid{display:grid;gap:.5rem}
-.compare-grid>div{padding:.45rem .5rem;border-bottom:1px solid var(--bg3);font-size:.8rem}
-.compare-grid .h{font-weight:700;color:var(--fg3);font-size:.78rem}
-.compare-grid .cell{font-family:'JetBrains Mono',monospace;font-size:.75rem}
-.compare-grid .val-good{color:var(--accent);font-weight:700}
-
-.footer{text-align:center;padding:2rem 1rem;color:var(--fg3);font-size:.75rem;border-top:1px solid var(--bg3);margin-top:2rem}
-
-@media (max-width:640px){
-  .hero h1{font-size:1.5rem}
-  .grid{grid-template-columns:1fr}
-}
+.mdl{background:var(--c1);border:1px solid var(--c3);border-radius:12px;max-width:920px;width:94%;padding-bottom:1rem;margin-bottom:4vh}
+.mdl h2{margin:0;padding:1rem;border-bottom:1px solid var(--c3);font-size:1rem}
+.mdl .close{float:right;background:none;border:none;color:var(--fg3);font-size:1.5rem;cursor:pointer;margin:-.5rem 0 0}
+.mdl-body{padding:1rem;font-size:.82rem}
+.mdl-body dt{color:var(--fg3);font-weight:600;float:left;width:130px}
+.mdl-body dd{margin-left:140px;margin-bottom:.4rem}
+.cmptable{display:grid;gap:.4rem;font-size:.75rem;margin-top:.5rem}
+.cmptable div{border-bottom:1px solid var(--c3);padding:.3rem .4rem}
+.cmptable .h{font-weight:700;color:var(--fg3)}
+.cmptable .g{color:var(--a);font-weight:700}
+.footer{text-align:center;padding:2rem 1rem;color:var(--fg3);font-size:.7rem;border-top:1px solid var(--c3);margin-top:2rem}
+#loading{text-align:center;padding:2rem;color:var(--fg3)}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="header">
-  <div class="header-inner">
-    <div class="logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5" stroke="#05080f" stroke-width="2" fill="none"/></svg>OLLAMA SPECS</div>
-    <div class="subtitle">Browse &amp; Compare</div>
+<div class="sticky">
+  <div class="sticky-inner">
+    <span class="logo">🟢 OLLAMA SPECS</span>
+    <span style="margin-left:auto;font-size:.7rem;color:var(--fg3)">229 models · specs · benchmarks</span>
   </div>
 </div>
 
 <div class="hero">
   <h1>Ollama Model Database</h1>
-  <p>Search 229 models. Check benchmarks, download sizes per tag, and whether your hardware can run them.</p>
+  <p>Search, filter, and compare every Ollama model. See download sizes per tag and check if your hardware can run it.</p>
   <div class="stats" id="stats"></div>
 </div>
 
 <div class="toolbar">
-  <div class="search-wrap">
-    <input type="text" id="search" placeholder="Search models... (e.g. llama3, qwen, 8B)" autocomplete="off">
-    <button class="clear" id="sclr">×</button>
-  </div>
-  <select id="sort"><option value="name">Sort by Name</option><option value="param">Sort by Size</option><option value="mmlu">Sort by MMLU</option><option value="math">Sort by MATH</option><option value="he">Sort by HumanEval</option></select>
-  <button id="togSpec">🔧 My Specs</button>
+  <input type="text" id="search" placeholder="Search models..." autocomplete="off">
+  <select id="sort">
+    <option value="name">Name</option><option value="param">Size</option><option value="mmlu">MMLU</option>
+    <option value="math">MATH</option><option value="he">HumanEval</option>
+  </select>
+  <button id="togSpec">⚙️ My Specs</button>
 </div>
 
-<div class="spec-checker" id="specPanel" style="display:none">
-  <div class="spec-checker-inner">
-    <div class="spec-grid">
-      <label>RAM (GB):</label><input type="number" id="myRam" value="32" min="1" max="512">
-      <label>VRAM (GB):</label><input type="number" id="myVram" value="12" min="0" max="128">
-      <label>Preferred:</label>
-      <select id="prefGpu"><option value="any">Any</option><option value="cpu">CPU Only</option><option value="gpu">GPU Only</option></select>
-      <label>Quant:</label>
-      <select id="prefQuant"><option value="Q4_K_M">Q4_K_M</option><option value="Q5_K_M">Q5_K_M</option><option value="Q8_0">Q8_0</option><option value="FP16">FP16</option><option value="Q2_K">Q2_K</option></select>
-      <span class="hint">Models show compatibility + tag sizes</span>
+<div id="specPanel" style="max-width:1400px;margin:0 auto;padding:0 1rem .8rem;display:none">
+  <div style="background:var(--c1);border:1px solid var(--c3);border-radius:8px;padding:.7rem 1rem">
+    <div style="display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;font-size:.8rem">
+      RAM <input type="number" id="myRam" value="32" min="1" max="512" style="width:60px">
+      VRAM <input type="number" id="myVram" value="12" min="0" max="128" style="width:60px">
+      Preferred <select id="prefGpu"><option value="any">Any</option><option value="cpu">CPU Only</option><option value="gpu">GPU Only</option></select>
+      Quant <select id="prefQuant"><option value="Q4_K_M">Q4_K_M</option><option value="Q5_K_M">Q5_K_M</option><option value="Q8_0">Q8_0</option><option value="FP16">FP16</option><option value="Q2_K">Q2_K</option></select>
     </div>
   </div>
 </div>
 
-<div class="chip-row" id="chips"></div>
+<div class="chips" id="chips"></div>
 
-<div class="main">
-  <div class="grid" id="grid"></div>
-</div>
+<div id="loading">⏳ Loading 229 models...</div>
+<div class="grid" id="grid"></div>
 
-<div class="comp-bar" id="compBar">
-  <span class="title">Compare</span>
+<div class="comp" id="compBar">
+  <strong style="font-size:.8rem">Compare:</strong>
   <div class="items" id="compItems"></div>
   <button class="btn" id="compGo">Compare</button>
-  <span class="clear" id="compClear">Clear all</span>
+  <span style="margin-left:auto;color:var(--fg3);font-size:.7rem;cursor:pointer" onclick="clearCompare()">Clear</span>
 </div>
 
-<div class="modal" id="modal">
-  <div class="modal-box" id="modalBox">
-    <button class="modal-close" id="modalClose">&times;</button>
-    <div class="modal-body" id="modalBody"></div>
-  </div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="mdl" id="modalBox"><div id="modalTitle"></div><div class="mdl-body" id="modalBody"></div></div>
 </div>
 
 <div class="footer">
-  229 Ollama models with real tag download sizes, benchmarks &amp; system requirements.
-  <br><a href="https://github.com/jlaiii/ollama-benchmarks" target="_blank">Benchmarks source</a> · <a href="https://github.com/jlaiii/ollama-model-specs" target="_blank">GitHub repo</a>
+  Data from ollama.com &amp; community benchmarks. Not official.
+  <br><a href="https://github.com/jlaiii/ollama-model-specs" target="_blank">GitHub</a> · <a href="https://github.com/jlaiii/ollama-benchmarks" target="_blank">Benchmarks</a>
 </div>
 
 <script>
-const DATA_URL='./data/database.min.json';
-let data=[], filtered=[], compare=[];
-const activeChips=new Set();
-const capNames={vision:'Vision',code:'Code',math:'Math',reasoning:'Reasoning',chat:'Chat',medical:'Medical',embedding:'Embedding',safety:'Safety',uncensored:'Uncensored',ocr:'OCR','tool-use':'Tool Use',moemodel:'MoE',small:'Small'};
-const chipOrder=['chat','code','vision','reasoning','math','medical','embedding','safety','tool-use','moemodel','small','uncensored'];
+const DATA='./data/database.min.json';
+let data=[],fil=[],sel=[];
+const chips=new Set();
+const CL={vision:"Vision",code:"Code",math:"Math",reasoning:"Reasoning",chat:"Chat",medical:"Medical",embedding:"Embedding",safety:"Safety",uncensored:"Uncensored",ocr:"OCR","tool-use":"Tool Use",moemodel:"MoE",small:"Small"};
+const CS=["chat","code","vision","reasoning","math","medical","embedding","safety","tool-use","moemodel","small","uncensored"];
 
-async function load(){
-  const r=await fetch(DATA_URL);
-  data=await r.json();
-  data.forEach(d=>{d._maxParam=maxParam(d.params);d._minParam=minParam(d.params);});
-  filtered=[...data];
-  renderChips();renderStats();render();
+async function init(){
+  try{
+    const r=await fetch(DATA);
+    if(!r.ok)throw new Error(r.status);
+    data=await r.json();
+    data.forEach(d=>{d._mx=Math.max(...d.params.map(p=>parseFloat(p)||0)),d._mn=Math.min(...d.params.map(p=>{const v=parseFloat(p);return isNaN(v)?999:v}))});
+    fil=[...data];
+    document.getElementById('loading').style.display='none';
+    buildChips();upStats();draw();
+  }catch(e){document.getElementById('loading').innerHTML='Error loading data: '+e.message;}
 }
-load();
+init();
 
-function maxParam(arr){let mx=0;for(const s of arr){const v=parseFloat(s)||0; if(v>mx)mx=v;}return mx;}
-function minParam(arr){let mn=999;for(const s of arr){const v=parseFloat(s)||999; if(v<mn)mn=v;}return mn===999?0:mn;}
-
-function renderChips(){
-  const el=document.getElementById('chips');
-  el.innerHTML=chipOrder.map(c=>`<span class="chip" data-c="${c}" onclick="toggleChip('${c}')">${capNames[c]||c}</span>`).join('');
+function buildChips(){
+  document.getElementById('chips').innerHTML=CS.map(c=>'<span class="chip" data-c="'+c+'" onclick="toggleChip(\''+c+'\')">'+(CL[c]||c)+'</span>').join('');
 }
 function toggleChip(c){
-  const el=document.querySelector(`.chip[data-c='${c}']`);el.classList.toggle('on');
-  if(activeChips.has(c))activeChips.delete(c);else activeChips.add(c);filter();
+  const el=document.querySelector('.chip[data-c="'+c+'"]');
+  el.classList.toggle('on');chips.has(c)?chips.delete(c):chips.add(c);dofilter();
 }
-function renderStats(){
-  const mmlu=data.filter(d=>d.benchmarks.MMLU).length;
-  const math=data.filter(d=>d.benchmarks.MATH).length;
-  document.getElementById('stats').innerHTML=`
-    <div class="stat"><div class="n">${data.length}</div><div class="l">Models</div></div>
-    <div class="stat"><div class="n">${mmlu}</div><div class="l">w/ MMLU</div></div>
-    <div class="stat"><div class="n">${math}</div><div class="l">w/ MATH</div></div>
-    <div class="stat"><div class="n">${compare.length}</div><div class="l">Comparing</div></div>`;
+function upStats(){
+  const mmlu=data.filter(d=>'d' in d.benchmarks).length;
+  document.getElementById('stats').innerHTML='<div class="stat"><div class="n">'+data.length+'</div><div class="l">Models</div></div><div class="stat"><div class="n">'+mmlu+'</div><div class="l">w/ MMLU</div></div><div class="stat"><div class="n">'+sel.length+'</div><div class="l">Comparing</div></div>';
 }
-
-function render(){
-  const el=document.getElementById('grid');
-  el.innerHTML=filtered.map(m=>card(m)).join('');
-  document.querySelectorAll('[id^="exp"]').forEach(b=>b.addEventListener('click',e=>{showModal(e.currentTarget.closest('.card').dataset.name);}));
-  document.querySelectorAll('[id^="chk"]').forEach(b=>b.addEventListener('click',e=>{const name=e.currentTarget.closest('.card').dataset.name;toggleCompare(name);e.currentTarget.classList.toggle('on');}));
+function draw(){
+  document.getElementById('grid').innerHTML=fil.map(m=>mkCard(m)).join('');
 }
+function mkCard(m){
+  const b=m.benchmarks||{},sc=[],tgs=m.tags||[];
+  if(b.MMLU)sc.push(mkS("MMLU",b.MMLU,b.MMLU>=70?'g':b.MMLU>=50?'m':''));
+  if(b.MATH)sc.push(mkS("MATH",b.MATH,b.MATH>=50?'g':b.MATH>=30?'m':''));
+  if(b.HE)sc.push(mkS("HE",b.HE,b.HE>=60?'g':b.HE>=40?'m':''));
+  if(b.GPQA)sc.push(mkS("GPQA",b.GPQA,b.GPQA>=50?'g':b.GPQA>=35?'m':''));
+  const caps=m.capabilities.map(c=>'<span class="'+(c)+'">'+(CL[c]||c)+'</span>').join('');
 
-function card(m){
-  const b=m.benchmarks||{};
-  const scores=[];
-  if(b.MMLU)scores.push(ts('MMLU',b.MMLU,b.MMLU>=70?'good':b.MMLU>=50?'mid':'ok'));
-  if(b.MATH)scores.push(ts('MATH',b.MATH,b.MATH>=50?'good':b.MATH>=30?'mid':'ok'));
-  if(b.HE)scores.push(ts('HE',b.HE,b.HE>=60?'good':b.HE>=40?'mid':'ok'));
-  if(b.GPQA)scores.push(ts('GPQA',b.GPQA,b.GPQA>=50?'good':b.GPQA>=35?'mid':'ok'));
-  const caps=m.capabilities.map(c=>`<span class="${c}">${capNames[c]||c}</span>`).join('');
+  const mr=+document.getElementById('myRam').value||999;
+  const mv=+document.getElementById('myVram').value||999;
+  const qq=document.getElementById('prefQuant').value;
+  const vv=(m.vram_gb?.[qq])||0;
+  const showSp=document.getElementById('specPanel').style.display!=='none';
+  const cmp=showSp?(mv>=vv?'<span class="ok">Runs</span>':'<span class="warn">Needs '+vv+'GB VRAM</span>'):'';
 
-  const myRam=+document.getElementById('myRam').value||999;
-  const myVram=+document.getElementById('myVram').value||999;
-  const prefGpu=document.getElementById('prefGpu').value;
-  const quant=document.getElementById('prefQuant').value;
-  const vram=m.vram_gb[quant]||0;
-  const isCompat=myVram>=vram;
-  const showCompat=document.getElementById('specPanel').style.display!=='none';
+  const r=m.requirements||{};
+  const rr=[];
+  if(r.min_ram)rr.push('<span>'+r.min_ram+' RAM min</span>');
+  if(r.rec_vram)rr.push('<span>'+r.rec_vram+' VRAM rec</span>');
+  if(r.gpu)rr.push('<span>'+(r.gpu==='either'?'CPU or GPU':r.gpu)+'</span>');
 
-  const req=m.requirements||{};
-  const reqTags=[];
-  if(req.min_ram)reqTags.push(`<span>${req.min_ram} RAM min</span>`);
-  if(req.rec_vram)reqTags.push(`<span>${req.rec_vram}</span>`);
+  const tagRows=tgs.slice(0,6).map(t=>'<tr><td>'+esc(t.tag)+'</td><td class="sz">'+t.size_gb+' GB</td><td>'+esc(t.quant)+'</td></tr>').join('');
 
-  // Tag table
-  const tags=m.tags||[];
-  const tagRows=tags.slice(0,8).map(t=>`<tr><td>${t.tag}</td><td class="sz">${t.size_gb} GB</td><td>${t.quant}</td></tr>`).join('');
-
-  return `<div class="card" data-name="${m.name}">
-    <div class="top">
-      <div><div class="name">${m.name} <span class="tag-count">${tags.length} tags</span></div><div class="params">${m.params.join(', ')}</div></div>
-    </div>
-    <div class="caps">${caps}</div>
-    <div class="bench">${scores.join('')}</div>
-    <div class="req-row">${reqTags.join('')}</div>
-    ${showCompat?`<div class="req-row"><span class="${isCompat?'ok':'warn'}">${isCompat?'✅ Runs on your GPU':'⚠️ Needs '+vram+'GB VRAM for '+quant}</span></div>`:''}
-    <table class="tag-table"><thead><tr><th>Tag</th><th>DL Size</th><th>Quant</th></tr></thead><tbody>${tagRows}</tbody></table>
-    <div class="actions">
-      <button id="exp${m.name}">📋 Details</button>
-      <button id="chk${m.name}" class="compare-btn ${compare.includes(m.name)?'on':''}">📊 Compare</button>
-    </div>
-  </div>`;
+  return '<div class="card" data-name="'+esc(m.name)+'">'
+    +'<div class="name">'+esc(m.name)+' <span class="ct">'+tgs.length+' tags</span></div>'
+    +'<div class="param">'+esc(m.params.join(', '))+'</div>'
+    +'<div class="caps">'+caps+'</div>'
+    +'<div class="bench">'+sc.join('')+'</div>'
+    +'<div class="req">'+rr.join('')+(cmp?'</div><div class="req">'+cmp:'')+'</div>'
+    +'<table class="tags-table"><thead><tr><th>Tag</th><th>DL Size</th><th>Quant</th></tr></thead><tbody>'+tagRows+'</tbody></table>'
+    +'<div class="rowbt"><button onclick="openModal(\''+esc(m.name)+'\')">Details</button>'
+    +'<button class="'+(sel.includes(m.name)?'on':'')+'" onclick="toggleCompare(\''+esc(m.name)+'\')">Compare</button></div>'
+    +'</div>';
 }
-function ts(k,v,cls){return `<span class="score ${cls}">${k} ${v}</span>`;}
+function mkS(k,v,c){return '<span class="s '+(c||'')+'">'+k+' '+v+'</span>';}
+function esc(s){return String(s).replace(/\u003c/g,'\u0026lt;').replace(/\u003e/g,'\u0026gt;').replace(/"/g,'\u0026quot;');}
 
-function filter(){
-  const s=document.getElementById('search').value.toLowerCase();
-  filtered=data.filter(m=>{
-    if(s){if(!m.name.includes(s)&&!m.params.some(p=>p.toLowerCase().includes(s)))return false;}
-    if(activeChips.size){for(const c of activeChips)if(!m.capabilities.includes(c))return false;}
-    const prefGpu=document.getElementById('prefGpu').value;
-    if(prefGpu==='cpu'&&m.requirements.gpu==='required')return false;
+function dofilter(){
+  const q=document.getElementById('search').value.toLowerCase();
+  fil=data.filter(m=>{
+    if(q&&!m.name.includes(q)&&!m.params.some(p=>p.toLowerCase().includes(q)))return false;
+    for(const c of chips)if(!m.capabilities.includes(c))return false;
+    const pg=document.getElementById('prefGpu').value;
+    if(pg==='cpu'&&m.requirements?.gpu==='required')return false;
+    if(pg==='gpu'&&m.requirements?.gpu!=='required')return false;
     return true;
   });
-  sort();render();
+  dosort();draw();
 }
-function sort(){
+function dosort(){
   const by=document.getElementById('sort').value;
-  filtered.sort((a,b)=>{
+  fil.sort((a,b)=>{
     if(by==='name')return a.name.localeCompare(b.name);
-    if(by==='param')return (b._maxParam||0)-(a._maxParam||0);
-    const diff=(n(a.benchmarks[by])||0)-(n(b.benchmarks[by])||0);
-    if(diff)return -diff; return a.name.localeCompare(b.name);
+    if(by==='param')return b._mx-a._mx;
+    const av=a.benchmarks?.[by],bv=b.benchmarks?.[by];
+    if(typeof av==='number'&&typeof bv==='number')return bv-av;
+    return a.name.localeCompare(b.name);
   });
 }
-function n(x){if(typeof x==='number')return x;if(typeof x==='string')return parseFloat(x)||0;return 0;}
 
-document.getElementById('search').addEventListener('input',filter);
-document.getElementById('sclr').onclick=()=>{document.getElementById('search').value='';filter();};
-document.getElementById('sort').addEventListener('change',()=>{sort();render();});
-document.getElementById('togSpec').onclick=()=>{const p=document.getElementById('specPanel');p.style.display=p.style.display==='none'?'block':'none';render();};
-document.getElementById('myRam').addEventListener('input',()=>{if(document.getElementById('specPanel').style.display!=='none')filter();});
-document.getElementById('myVram').addEventListener('input',()=>{if(document.getElementById('specPanel').style.display!=='none')filter();});
-document.getElementById('prefGpu').addEventListener('change',filter);
-document.getElementById('prefQuant').addEventListener('change',filter);
+document.getElementById('search').addEventListener('input',dofilter);
+document.getElementById('sort').addEventListener('change',()=>{dosort();draw();});
+document.getElementById('togSpec').addEventListener('click',()=>{
+  const p=document.getElementById('specPanel');
+  p.style.display=p.style.display==='none'?'block':'none';draw();
+});
+document.getElementById('myRam').addEventListener('input',()=>{if(document.getElementById('specPanel').style.display!=='none')dofilter();});
+document.getElementById('myVram').addEventListener('input',()=>{if(document.getElementById('specPanel').style.display!=='none')dofilter();});
+document.getElementById('prefGpu').addEventListener('change',dofilter);
+document.getElementById('prefQuant').addEventListener('change',dofilter);
 
-function toggleCompare(name){
-  const i=compare.indexOf(name);
-  if(i>=0)compare.splice(i,1);else if(compare.length<6)compare.push(name);
-  updateCompBar();renderStats();
+function toggleCompare(n){
+  const i=sel.indexOf(n);if(i>=0)sel.splice(i,1);else if(sel.length<6)sel.push(n);
+  upStats();updateBar();draw();
 }
-function updateCompBar(){
-  const bar=document.getElementById('compBar');bar.classList.toggle('on',compare.length>0);
-  document.getElementById('compItems').innerHTML=compare.map(n=>{
-    const m=data.find(x=>x.name===n);
-    return `<span class="itm">${m?.name||n}<span class="x" data-x="${n}" onclick="removeCompare('${n}')">×</span></span>`;
-  }).join('');
+function updateBar(){
+  const bar=document.getElementById('compBar');bar.classList.toggle('on',sel.length>0);
+  document.getElementById('compItems').innerHTML=sel.map(n=>'<span class="itm">'+esc(n)+'<span class="x" onclick="toggleCompare(\''+esc(n)+'\')">×</span></span>').join('');
 }
-function removeCompare(n){toggleCompare(n);render();}
-document.getElementById('compClear').onclick=()=>{compare=[];render();updateCompBar();renderStats();};
-document.getElementById('compGo').onclick=showCompare;
+function clearCompare(){sel=[];updateBar();upStats();draw();}
+document.getElementById('compGo').addEventListener('click',showCompare);
 
-function showModal(name){
+function openModal(name){
   const m=data.find(x=>x.name===name);if(!m)return;
-  const b=m.benchmarks||{};
-  const rows=[];
-  rows.push(['Parameters',m.params.join(', ')]);
-  rows.push(['Capabilities',m.capabilities.map(c=>capNames[c]||c).join(', ')||'—']);
-  rows.push(['Min RAM',m.requirements?.min_ram||'—']);
-  rows.push(['Rec RAM',m.requirements?.rec_ram||'—']);
-  rows.push(['Min VRAM',m.requirements?.min_vram||'—']);
-  rows.push(['Rec VRAM',m.requirements?.rec_vram||'—']);
+  const b=m.benchmarks||{},rows=[];
+  rows.push(['Model',m.name]);rows.push(['Parameters',m.params.join(', ')]);
+  rows.push(['Capabilities',m.capabilities.map(c=>CL[c]||c).join(', ')||'—']);
+  rows.push(['Min RAM',m.requirements?.min_ram||'—']);rows.push(['Rec RAM',m.requirements?.rec_ram||'—']);
+  rows.push(['Min VRAM',m.requirements?.min_vram||'—']);rows.push(['Rec VRAM',m.requirements?.rec_vram||'—']);
   rows.push(['GPU',m.requirements?.gpu==='either'?'CPU or GPU':m.requirements?.gpu||'—']);
-  rows.push(['VRAM Q2_K',(m.vram_gb?.Q2_K||'?')+' GB']);
-  rows.push(['VRAM Q4_K_M',(m.vram_gb?.Q4_K_M||'?')+' GB']);
-  rows.push(['VRAM Q8_0',(m.vram_gb?.Q8_0||'?')+' GB']);
-  rows.push(['VRAM FP16',(m.vram_gb?.FP16||'?')+' GB']);
+  rows.push(['VRAM Q2_K',(m.vram_gb?.Q2_K||0)+' GB']);rows.push(['VRAM Q4_K_M',(m.vram_gb?.Q4_K_M||0)+' GB']);
+  rows.push(['VRAM Q5_K_M',(m.vram_gb?.Q5_K_M||0)+' GB']);rows.push(['VRAM Q8_0',(m.vram_gb?.Q8_0||0)+' GB']);
+  rows.push(['VRAM FP16',(m.vram_gb?.FP16||0)+' GB']);
   for(const k of Object.keys(b).sort())if(k!=='type')rows.push([k,b[k]]);
   rows.push(['Notes',m.requirements?.notes||'']);
 
-  // Tag size table in modal
-  const ttags=m.tags||[];
-  const tagTable=`
-    <h3 style="margin:1.2rem 0 .5rem;font-size:.9rem;color:var(--fg2)">Tags &amp; Download Sizes</h3>
-    <table class="tag-table" style="max-width:500px">
-      <thead><tr><th>Tag</th><th>Size</th><th>Quant</th></tr></thead>
-      <tbody>${ttags.map(t=>`<tr><td>${t.tag}</td><td class="sz">${t.size_gb} GB</td><td>${t.quant}</td></tr>`).join('')}</tbody>
-    </table>`;
+  const tgs=(m.tags||[]).map(t=>'<tr><td>'+esc(t.tag)+'</td><td class="sz">'+t.size_gb+' GB</td><td>'+esc(t.quant)+'</td></tr>').join('');
+  const tagTable='<h3 style="margin:1rem 0 .4rem;font-size:.85rem;color:var(--fg2)">Tags &amp; Download Sizes</h3><table class="tags-table" style="max-width:480px"><thead><tr><th>Tag</th><th>Size</th><th>Quant</th></tr></thead><tbody>'+tgs+'</tbody></table>';
 
-  const html=`<h2>${m.name}</h2>
-    <div style="display:grid;grid-template-columns:160px 1fr;gap:.5rem;font-size:.85rem">
-      ${rows.map(([k,v])=>`<div style="color:var(--fg3);font-weight:600">${k}</div><div>${v}</div>`).join('')}
-    </div>${tagTable}`;
-  document.getElementById('modalBody').innerHTML=html;
+  document.getElementById('modalTitle').innerHTML='<h2>'+esc(m.name)+'<button class="close" onclick="closeModal()">&times;</button></h2>';
+  document.getElementById('modalBody').innerHTML='<dl>'+rows.map(([k,v])=>'<dt>'+esc(k)+'</dt><dd>'+esc(v)+'</dd>').join('')+'</dl>'+tagTable;
   document.getElementById('modal').classList.add('on');
 }
-document.getElementById('modalClose').onclick=()=>document.getElementById('modal').classList.remove('on');
-document.getElementById('modal').onclick=e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('on');};
+function closeModal(){document.getElementById('modal').classList.remove('on');}
 
 function showCompare(){
-  if(compare.length<2)return;
-  const ms=compare.map(n=>data.find(x=>x.name===n)).filter(Boolean);
+  if(sel.length<2)return;
+  const ms=sel.map(n=>data.find(x=>x.name===n)).filter(Boolean);
   const keys=new Set();ms.forEach(m=>Object.keys(m.benchmarks||{}).forEach(k=>keys.add(k)));
   const rows=[];
   rows.push(['Model',...ms.map(m=>m.name)]);
   rows.push(['Parameters',...ms.map(m=>m.params.join(', '))]);
-  rows.push(['Capabilities',...ms.map(m=>m.capabilities.map(c=>capNames[c]||c).join(', ')||'—')]);
+  rows.push(['Capabilities',...ms.map(m=>m.capabilities.map(c=>CL[c]||c).join(', ')||'—')]);
   rows.push(['Min RAM',...ms.map(m=>m.requirements?.min_ram||'—')]);
   rows.push(['Rec RAM',...ms.map(m=>m.requirements?.rec_ram||'—')]);
   rows.push(['Rec VRAM',...ms.map(m=>m.requirements?.rec_vram||'—')]);
   rows.push(['GPU',...ms.map(m=>m.requirements?.gpu==='either'?'CPU/GPU':m.requirements?.gpu||'—')]);
-
-  // Tag comparison: show first 3 tags for each
-  rows.push(['Smallest tag',...ms.map(m=>{m.tags||(m.tags=[]);const t=m.tags[0];return t?t.tag+' ('+t.size_gb+'GB)':'—';})]);
-  rows.push(['Default Q4 tag',...ms.map(m=>{const t=m.tags?.find(x=>x.quant==='Q4_K_M');return t?t.tag+' ('+t.size_gb+'GB)':'—';})]);
-
+  rows.push(['Smallest DL',...ms.map(m=>{const t=m.tags?.[0];return t?t.tag+' ('+t.size_gb+'GB)':'—';})]);
+  rows.push(['Default Q4 DL',...ms.map(m=>{const t=m.tags?.find(x=>x.quant==='Q4_K_M');return t?t.tag+' ('+t.size_gb+'GB)':'—';})]);
+  rows.push(['VRAM Q4',...ms.map(m=>(m.vram_gb?.Q4_K_M||0)+' GB')]);
   for(const k of Array.from(keys).sort())rows.push([k,...ms.map(m=>m.benchmarks?.[k]??'—')]);
 
-  const html='<h2>Comparison</h2>'+
-    '<div style="overflow-x:auto">'+
-    '<div class="compare-grid" style="grid-template-columns:150px repeat('+ms.length+',minmax(150px,1fr))">'+
-    rows.map(r=>r.map((c,j)=>'<div style="padding:.45rem .5rem;border-bottom:1px solid var(--bg3);font-size:.78rem" class="'+(j===0?'h':(typeof c==='number'&&c>=70?'val-good':'cell'))+'">'+c+'</div>').join('')).join('')+
-    '</div></div>';
-  document.getElementById('modalBody').innerHTML=html;
+  const cols=ms.length;
+  const html=['<h2>Comparison<button class="close" onclick="closeModal()">&times;</button></h2><div class="cmptable" style="grid-template-columns:140px repeat('+cols+',1fr)">'];
+  for(const r of rows){
+    for(let j=0;j<r.length;j++){
+      const v=r[j];
+      const cls=j===0?'h':(typeof v==='number'&&v>=70?'g':'cell');
+      html.push('<div class="'+cls+'">'+esc(v)+'</div>');
+    }
+  }
+  html.push('</div>');
+  document.getElementById('modalTitle').innerHTML='';
+  document.getElementById('modalBody').innerHTML=html.join('');
   document.getElementById('modal').classList.add('on');
 }
 </script>
