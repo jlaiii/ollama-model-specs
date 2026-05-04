@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ollama Model Specs — The Ollama Model Database</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg0:#05080f;--bg1:#0c1020;--bg2:#121830;--bg3:#1b2440;
+  --fg:#d8def0;--fg2:#99a0bc;--fg3:#586390;
+  --accent:#42f5a1;--accent2:#f2a900;--danger:#ff4757;--info:#3b82f6;--purple:#a855f7;
+  --ramp:42,245,161;
+  --shadow:0 8px 32px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg0);color:var(--fg);font-family:'Inter',system-ui,sans-serif;scroll-behavior:smooth}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:4px}
+
+.header{background:var(--bg1);border-bottom:1px solid var(--bg3);padding:.6rem 1.2rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.header .logo{font-weight:800;font-size:1.15rem;color:var(--accent);display:flex;align-items:center;gap:.4rem}
+.header .logo svg{width:24px;height:24px;fill:var(--accent)}
+.header .subtitle{font-size:.72rem;color:var(--fg3);margin-left:auto;text-transform:uppercase;letter-spacing:.05em}
+
+.hero{padding:2.5rem 1rem 1.5rem;text-align:center;background:linear-gradient(180deg,var(--bg1) 0%,var(--bg0) 100%)}
+.hero h1{font-size:2.2rem;font-weight:800;margin:0 0 .3rem;background:linear-gradient(135deg,#fff,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--fg2);font-size:.95rem;margin:0 auto 1.2rem;max-width:520px}
+
+.toolbar{max-width:1400px;margin:0 auto;padding:0 1rem 1rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.search-wrap{flex:1 1 280px;position:relative}
+.search-wrap input{width:100%;padding:.65rem 2.5rem .65rem 1rem;background:var(--bg2);border:1px solid var(--bg3);border-radius:10px;color:var(--fg);font-size:.9rem;outline:none;transition:.2s}
+.search-wrap input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(var(--ramp),.1)}
+.search-wrap .clear{position:absolute;right:.6rem;top:50%;transform:translateY(-50%);background:transparent;border:none;color:var(--fg3);cursor:pointer;font-size:1.1rem}
+.toolbar select,.toolbar button{padding:.55rem .85rem;background:var(--bg2);border:1px solid var(--bg3);border-radius:8px;color:var(--fg);font-size:.82rem;cursor:pointer;transition:.2s}
+.toolbar button:hover,.toolbar select:hover{border-color:var(--accent)}
+.toolbar .active-btn{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+
+.chip-row{display:flex;flex-wrap:wrap;gap:.35rem;padding:0 1rem .6rem;max-width:1400px;margin:0 auto}
+.chip{padding:.3rem .55rem;background:var(--bg2);border:1px solid var(--bg3);border-radius:6px;font-size:.72rem;color:var(--fg2);cursor:pointer;transition:.2s}
+.chip:hover,.chip.on{background:rgba(var(--ramp),.12);border-color:var(--accent);color:var(--accent)}
+
+.spec-checker{max-width:1400px;margin:.4rem auto 0;padding:0 1rem}
+.spec-checker-inner{background:var(--bg1);border:1px solid var(--bg3);border-radius:10px;padding:.8rem 1rem}
+.spec-checker h3{margin:0 0 .5rem;font-size:.85rem;color:var(--fg2)}
+.spec-grid{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.spec-grid label{font-size:.78rem;color:var(--fg3)}
+.spec-grid input,.spec-grid select{padding:.4rem .5rem;background:var(--bg2);border:1px solid var(--bg3);border-radius:6px;color:var(--fg);font-size:.78rem;max-width:80px}
+.spec-grid .hint{font-size:.7rem;color:var(--fg3);margin-left:auto}
+
+.main{max-width:1400px;margin:1rem auto;padding:0 1rem}
+
+.stats{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin:0 0 1rem}
+.stat{text-align:center;padding:.6rem 1rem;background:var(--bg1);border:1px solid var(--bg3);border-radius:10px;min-width:80px}
+.stat .n{font-size:1.2rem;font-weight:700;color:var(--accent)}
+.stat .l{font-size:.68rem;color:var(--fg3);text-transform:uppercase;letter-spacing:.05em;margin-top:.1rem}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+.card{background:var(--bg1);border:1px solid var(--bg3);border-radius:12px;padding:1rem;transition:.2s;position:relative}
+.card:hover{border-color:var(--bg3);box-shadow:var(--shadow)}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+.card .name{font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:.3rem}
+.card .name .tag-count{font-size:.65rem;font-weight:500;color:var(--bg0);background:var(--accent2);padding:.06rem .3rem;border-radius:4px}
+.card .params{font-size:.78rem;color:var(--fg2);margin:.15rem 0 .4rem}
+.card .caps{display:flex;flex-wrap:wrap;gap:.25rem;margin:.3rem 0}
+.card .caps span{font-size:.65rem;padding:.12rem .32rem;border-radius:4px;background:var(--bg2);border:1px solid var(--bg3);color:var(--fg2)}
+.card .caps span.vision{background:rgba(59,130,246,.12);color:#60a5fa;border-color:#1e40af}
+.card .caps span.code{background:rgba(168,85,247,.12);color:#c084fc;border-color:#6b21a8}
+.card .caps span.reasoning{background:rgba(242,169,0,.12);color:#f2a900;border-color:#92400e}
+.card .caps span.chat{background:rgba(66,245,161,.12);color:var(--accent);border-color:#15803d}
+.card .caps span.safety{background:rgba(255,71,87,.12);color:#ff6b81;border-color:#991b1b}
+.card .caps span.embedding{background:rgba(6,182,212,.12);color:#22d3ee;border-color:#164e63}
+
+.bench{display:flex;flex-wrap:wrap;gap:.3rem;margin:.4rem 0 0}
+.bench .score{font-size:.68rem;padding:.12rem .35rem;border-radius:4px;background:var(--bg2);color:var(--fg2);font-family:'JetBrains Mono',monospace}
+.bench .score.good{background:rgba(66,245,161,.08);color:var(--accent)}
+.bench .score.great{background:rgba(66,245,161,.16);color:var(--accent);border:1px solid rgba(66,245,161,.25)}
+.bench .score.mid{background:rgba(242,169,0,.08);color:var(--accent2)}
+.req-row{display:flex;flex-wrap:wrap;gap:.3rem;margin:.35rem 0}
+.req-row span{font-size:.68rem;padding:.12rem .35rem;border-radius:4px;background:var(--bg2);color:var(--fg2)}
+.req-row span.warn{color:#ff6b81;background:rgba(255,71,87,.08)}
+.req-row span.ok{color:var(--accent);background:rgba(66,245,161,.08)}
+
+.vram-row{display:flex;flex-wrap:wrap;gap:.2rem;margin:.3rem 0;font-size:.68rem}
+.vram-row span{padding:.08rem .2rem;border-radius:3px;background:var(--bg0);color:var(--fg3)}
+.vram-row .q2{color:#94a3b8}.vram-row .q4{color:#22d3ee}.vram-row .q5{color:#60a5fa}.vram-row .q8{color:#a855f7}.vram-row .fp{color:#ff6b81}
+
+.actions{display:flex;gap:.4rem;margin-top:.5rem}
+.actions button{flex:1;padding:.4rem;font-size:.7rem;border-radius:6px;border:1px solid var(--bg3);background:var(--bg2);color:var(--fg2);cursor:pointer;transition:.2s}
+.actions button:hover{border-color:var(--accent);color:var(--accent)}
+.actions .compare-btn.on{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+
+.comp-bar{position:fixed;bottom:0;left:0;right:0;background:var(--bg1);border-top:1px solid var(--bg3);padding:.7rem 1rem;z-index:200;display:none;align-items:center;gap:.6rem;flex-wrap:wrap}
+.comp-bar.on{display:flex}
+.comp-bar .title{font-weight:700;font-size:.85rem}
+.comp-bar .items{display:flex;gap:.3rem;flex-wrap:wrap}
+.comp-bar .items .itm{background:var(--bg2);padding:.25rem .5rem;border-radius:6px;font-size:.72rem;display:flex;align-items:center;gap:.3rem}
+.comp-bar .items .itm .x{cursor:pointer;color:var(--fg3)}
+.comp-bar .btn{padding:.45rem 1rem;background:var(--accent);color:#000;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:.8rem}
+.comp-bar .btn:hover{background:#32d890}
+.comp-bar .clear{color:var(--fg3);cursor:pointer;font-size:.75rem;margin-left:auto}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:none;justify-content:center;align-items:flex-start;padding-top:4vh;overflow-y:auto}
+.modal.on{display:flex}
+.modal-box{background:var(--bg1);border:1px solid var(--bg3);border-radius:14px;max-width:900px;width:94%;margin-bottom:4vh;position:relative}
+.modal-box h2{margin:0;padding:1rem 1.2rem;font-size:1.1rem;border-bottom:1px solid var(--bg3);display:flex;align-items:center;gap:.4rem}
+.modal-close{position:absolute;right:1rem;top:.9rem;background:transparent;border:none;color:var(--fg3);font-size:1.5rem;cursor:pointer}
+.modal-body{padding:1.2rem}
+.compare-grid{display:grid;grid-template-columns:160px repeat(auto-fit,minmax(160px,1fr));gap:.5rem}
+.compare-grid>div{padding:.45rem .5rem;border-bottom:1px solid var(--bg3);font-size:.8rem}
+.compare-grid .h{font-weight:700;color:var(--fg3);font-size:.78rem}
+.compare-grid .cell{font-family:'JetBrains Mono',monospace;font-size:.75rem}
+.compare-grid .val-good{color:var(--accent);font-weight:700}
+
+.footer{text-align:center;padding:2rem 1rem;color:var(--fg3);font-size:.75rem;border-top:1px solid var(--bg3);margin-top:2rem}
+
+@media (max-width:640px){
+  .hero h1{font-size:1.5rem}
+  .grid{grid-template-columns:1fr}
+  .toolbar{gap:.4rem}
+  .spec-grid{gap:.4rem}
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5" stroke="#05080f" stroke-width="2" fill="none"/></svg>OLLAMA SPECS</div>
+    <div class="subtitle">Browse &amp; Compare</div>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>Ollama Model Database</h1>
+  <p>Search, filter, benchmark, and compare every Ollama model. Check if your hardware can run it.</p>
+  <div class="stats" id="stats"></div>
+</div>
+
+<div class="toolbar">
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Search models... (e.g. llama3, qwen, 8B)" autocomplete="off">
+    <button class="clear" id="sclr">×</button>
+  </div>
+  <select id="sort"><option value="name">Sort by Name</option><option value="param">Sort by Size</option><option value="mmlu">Sort by MMLU</option><option value="math">Sort by MATH</option><option value="he">Sort by HumanEval</option></select>
+  <button id="togSpec">🔧 My Specs</button>
+</div>
+
+<div class="spec-checker" id="specPanel" style="display:none">
+  <div class="spec-checker-inner">
+    <div class="spec-grid">
+      <label>RAM (GB):</label>
+      <input type="number" id="myRam" value="32" min="1" max="512">
+      <label>VRAM (GB):</label>
+      <input type="number" id="myVram" value="12" min="0" max="128">
+      <label>Preferred:</label>
+      <select id="prefGpu">
+        <option value="any">Any</option>
+        <option value="cpu">CPU Only</option>
+        <option value="gpu">GPU Only</option>
+      </select>
+      <label>Quant:</label>
+      <select id="prefQuant"><option value="Q4_K_M">Q4_K_M</option><option value="Q5_K_M">Q5_K_M</option><option value="Q8_0">Q8_0</option><option value="FP16">FP16</option><option value="Q2_K">Q2_K</option></select>
+      <span class="hint">Models will show compatibility status</span>
+    </div>
+  </div>
+</div>
+
+<div class="chip-row" id="chips"></div>
+
+<div class="main">
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="comp-bar" id="compBar">
+  <span class="title">Compare</span>
+  <div class="items" id="compItems"></div>
+  <button class="btn" id="compGo">Compare</button>
+  <span class="clear" id="compClear">Clear all</span>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="footer">
+  Built for Ollama enthusiasts. Data sourced from ollama.com and community benchmarks. Not official.
+  <br><a href="https://github.com/jlaiii/ollama-benchmarks" target="_blank">Original benchmarks repo</a>
+</div>
+
+<script>
+const DATA_URL='./data/database.min.json';
+let data=[];
+let filtered=[];
+let compare=[];
+const activeChips=new Set();
+const capNames={vision:'Vision',code:'Code',math:'Math',reasoning:'Reasoning',chat:'Chat',medical:'Medical',embedding:'Embedding',safety:'Safety',uncensored:'Uncensored',ocr:'OCR','tool-use':'Tool Use',moemodel:'MoE',small:'Small'};
+const chipOrder=['chat','code','vision','reasoning','math','medical','embedding','safety','tool-use','moemodel','small','uncensored'];
+
+async function load(){
+  const r=await fetch(DATA_URL);
+  data=await r.json();
+  data.forEach(d=>{d._maxParam=maxParam(d.params);d._minParam=minParam(d.params);});
+  filtered=[...data];
+  renderChips();
+  renderStats();
+  render();
+}
+load();
+
+function maxParam(arr){return arr.map(p=>parseFloat(p)||0).reduce((a,b)=>Math.max(a,b||a),0);}
+function minParam(arr){const f=arr.map(p=>parseFloat(p)||999);const m=Math.min(...f);return m===999?0:m;}
+
+function renderChips(){
+  const el=document.getElementById('chips');
+  el.innerHTML=chipOrder.map(c=>`<span class="chip" data-c="${c}">${capNames[c]||c}</span>`).join('');
+  el.querySelectorAll('.chip').forEach(ch=>ch.onclick=()=>{ch.classList.toggle('on');const k=ch.dataset.c;if(activeChips.has(k))activeChips.delete(k);else activeChips.add(k);filter();});
+}
+function renderStats(){
+  const mmlu=data.filter(d=>d.benchmarks.MMLU).length;
+  const math=data.filter(d=>d.benchmarks.MATH).length;
+  document.getElementById('stats').innerHTML=[['',data.length,'Models'],['',mmlu,'w/ MMLU'],['',math,'w/ MATH'],['',compare.length,'Comparing']].map(([icon,n,l])=>`<div class="stat"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('');
+}
+function render(){
+  const el=document.getElementById('grid');
+  el.innerHTML=filtered.map(m=>card(m)).join('');
+  document.querySelectorAll('[id^="exp"]').forEach(b=>b.onclick=e=>{const g=e.target.closest('.card');showModal(g.dataset.name);});
+  document.querySelectorAll('[id^="chk"]').forEach(b=>b.onclick=e=>{toggleCompare(e.target.closest('.card').dataset.name);e.target.classList.toggle('on');});
+}
+function card(m){
+  const bench=m.benchmarks||{};
+  const scores=[];
+  if(bench.MMLU)scores.push(tag('MMLU',bench.MMLU,bench.MMLU>=70?'good':bench.MMLU>=50?'mid':'ok'));
+  if(bench.MATH)scores.push(tag('MATH',bench.MATH,bench.MATH>=50?'good':bench.MATH>=30?'mid':'ok'));
+  if(bench.HE)scores.push(tag('HE',bench.HE,bench.HE>=60?'good':bench.HE>=40?'mid':'ok'));
+  if(bench.GPQA)scores.push(tag('GPQA',bench.GPQA,bench.GPQA>=50?'good':bench.GPQA>=35?'mid':'ok'));
+  const caps=m.capabilities.map(c=>`<span class="${c}">${capNames[c]||c}</span>`).join('');
+
+  const myRam=+document.getElementById('myRam').value||999;
+  const myVram=+document.getElementById('myVram').value||999;
+  const prefGpu=document.getElementById('prefGpu').value;
+  const quant=document.getElementById('prefQuant').value;
+  const vram=m.vram_gb[quant]||'?';
+  const isCompat=myVram>=vram;
+  const compatClass=isCompat?'ok':'warn';
+  const compatText=isCompat?'✅ Runs':'⚠️ Needs more VRAM';
+  const showCompat=document.getElementById('specPanel').style.display!=='none';
+
+  const req=m.requirements||{};
+  const reqTags=[];
+  if(req.min_ram)reqTags.push(`<span>${req.min_ram} RAM min</span>`);
+  if(req.rec_vram)reqTags.push(`<span>${req.rec_vram}</span>`);
+  if(req.gpu)reqTags.push(`<span>${req.gpu==='either'?'CPU or GPU':req.gpu}</span>`);
+
+  const vramTags=`Q2:${vram} Q4:${vram} Q5:${vram} Q8:${m.vram_gb.Q8_0||'?'} FP16:${m.vram_gb.FP16||'?'}`;
+
+  return `<div class="card" data-name="${m.name}">
+    <div class="top">
+      <div>
+        <div class="name">${m.name} <span class="tag-count">${m.params.length} sizes</span></div>
+        <div class="params">${m.params.join(', ')} params</div>
+      </div>
+    </div>
+    <div class="caps">${caps}</div>
+    <div class="bench">${scores.join('')}</div>
+    <div class="req-row">${reqTags.join('')}</div>
+    ${showCompat?'<div class="req-row"><span class="'+(isCompat?'ok':'warn')+'">'+compatText+'</span></div>':''}
+    <div class="vram-row">
+      <span class="q2">Q2</span><span>${m.vram_gb.Q2_K}</span>
+      <span class="q4">Q4</span><span>${m.vram_gb.Q4_K_M}</span>
+      <span class="q5">Q5</span><span>${m.vram_gb.Q5_K_M}</span>
+      <span class="q8">Q8</span><span>${m.vram_gb.Q8_0}</span>
+      <span class="fp">FP</span><span>${m.vram_gb.FP16}</span>
+    </div>
+    <div class="actions">
+      <button id="exp${m.name}">📋 Details</button>
+      <button id="chk${m.name}" class="compare-btn${compare.includes(m.name)?' on':''}">📊 Compare</button>
+    </div>
+  </div>`;
+}
+function tag(k,v,cls){return `<span class="score ${cls}">${k} ${v}</span>`;}
+
+function filter(){
+  const s=document.getElementById('search').value.toLowerCase();
+  filtered=data.filter(m=>{
+    if(s){
+      if(!m.name.includes(s)&&!m.params.some(p=>p.toLowerCase().includes(s)))return false;
+    }
+    if(activeChips.size){
+      for(const c of activeChips)if(!m.capabilities.includes(c))return false;
+    }
+    const prefGpu=document.getElementById('prefGpu').value;
+    if(prefGpu==='cpu'&&m.requirements.gpu==='required')return false;
+    if(prefGpu==='gpu'&&m.requirements.gpu==='either')return true;
+    return true;
+  });
+  sort();
+  render();
+}
+function sort(){
+  const by=document.getElementById('sort').value;
+  filtered.sort((a,b)=>{
+    if(by==='name')return a.name.localeCompare(b.name);
+    if(by==='param')return (b._maxParam||0)-(a._maxParam||0);
+    const diff=(v(a.benchmarks[by])||0)-(v(b.benchmarks[by])||0);
+    if(diff)return -diff;
+    return a.name.localeCompare(b.name);
+  });
+}
+function v(x){if(typeof x==='number')return x;if(typeof x==='string')return parseFloat(x)||0;return 0;}
+
+document.getElementById('search').addEventListener('input',filter);
+document.getElementById('sclr').onclick=()=>{document.getElementById('search').value='';filter();};
+document.getElementById('sort').addEventListener('change',()=>{sort();render();});
+document.getElementById('togSpec').onclick=()=>{const p=document.getElementById('specPanel');p.style.display=p.style.display==='none'?'block':'none';render();};
+document.getElementById('myRam').addEventListener('input',()=>{if(document.getElementById('specPanel').style.display!=='none')filter();});
+document.getElementById('myVram').addEventListener('input',()=>{if(document.getElementById('specPanel').style.display!=='none')filter();});
+document.getElementById('prefGpu').addEventListener('change',filter);
+document.getElementById('prefQuant').addEventListener('change',filter);
+
+function toggleCompare(name){
+  const i=compare.indexOf(name);
+  if(i>=0){compare.splice(i,1);}else if(compare.length<6){compare.push(name);}
+  updateCompBar();
+}
+function updateCompBar(){
+  const bar=document.getElementById('compBar');
+  bar.classList.toggle('on',compare.length>0);
+  document.getElementById('compItems').innerHTML=compare.map(n=>{
+    const m=data.find(x=>x.name===n);
+    return `<span class="itm">${m?.name||n}<span class="x" data-x="${n}">&times;</span></span>`;
+  }).join('');
+  document.querySelectorAll('.x[data-x]').forEach(x=>x.onclick=e=>{toggleCompare(e.target.dataset.x);document.querySelector(`.card[data-name="${e.target.dataset.x}"] .compare-btn`)?.classList.remove('on');render();});
+  renderStats();
+}
+document.getElementById('compClear').onclick=()=>{compare=[];document.querySelectorAll('.compare-btn.on').forEach(b=>b.classList.remove('on'));updateCompBar();};
+document.getElementById('compGo').onclick=showCompare;
+
+function showModal(name){
+  const m=data.find(x=>x.name===name);if(!m)return;
+  const b=m.benchmarks||{};
+  const rows=[];
+  rows.push(['Parameters',m.params.join(', ')]);
+  rows.push(['Capabilities',m.capabilities.map(c=>capNames[c]||c).join(', ')||'—']);
+  rows.push(['Min RAM',m.requirements?.min_ram||'—']);
+  rows.push(['Rec RAM',m.requirements?.rec_ram||'—']);
+  rows.push(['Min VRAM',m.requirements?.min_vram||'—']);
+  rows.push(['Rec VRAM',m.requirements?.rec_vram||'—']);
+  rows.push(['GPU',m.requirements?.gpu==='either'?'CPU or GPU':m.requirements?.gpu||'—']);
+  rows.push(['VRAM Q2_K',(m.vram_gb?.Q2_K||'?')+' GB']);
+  rows.push(['VRAM Q4_K_M',(m.vram_gb?.Q4_K_M||'?')+' GB']);
+  rows.push(['VRAM Q8_0',(m.vram_gb?.Q8_0||'?')+' GB']);
+  rows.push(['VRAM FP16',(m.vram_gb?.FP16||'?')+' GB']);
+  for(const k of Object.keys(b).sort())if(k!=='type')rows.push([k,b[k]]);
+  rows.push(['Notes',m.requirements?.notes||'']);
+  const html=`<h2>${m.name}</h2><div style="display:grid;grid-template-columns:140px 1fr;gap:.4rem;font-size:.85rem">${rows.map(([k,v])=>`<div style="color:var(--fg3);font-weight:600">${k}</div><div>${v}</div>`).join('')}</div>`;
+  document.getElementById('modalBody').innerHTML=html;
+  document.getElementById('modal').classList.add('on');
+}
+document.getElementById('modalClose').onclick=()=>document.getElementById('modal').classList.remove('on');
+document.getElementById('modal').onclick=e=>{if(e.target.id==='modal')document.getElementById('modal').classList.remove('on');};
+
+function showCompare(){
+  if(compare.length<2)return;
+  const ms=compare.map(n=>data.find(x=>x.name===n)).filter(Boolean);
+  const keys=new Set();ms.forEach(m=>Object.keys(m.benchmarks||{}).forEach(k=>keys.add(k)));
+  const rows=[];
+  rows.push(['Model',...ms.map(m=>m.name)]);
+  rows.push(['Parameters',...ms.map(m=>m.params.join(', '))]);
+  rows.push(['Capabilities',...ms.map(m=>m.capabilities.map(c=>capNames[c]||c).join(', ')||'—')]);
+  rows.push(['Min RAM',...ms.map(m=>m.requirements?.min_ram||'—')]);
+  rows.push(['Rec RAM',...ms.map(m=>m.requirements?.rec_ram||'—')]);
+  rows.push(['Rec VRAM',...ms.map(m=>m.requirements?.rec_vram||'—')]);
+  rows.push(['GPU',...ms.map(m=>m.requirements?.gpu==='either'?'CPU/GPU':m.requirements?.gpu||'—')]);
+  for(const k of Array.from(keys).sort()){
+    rows.push([k,...ms.map(m=>m.benchmarks?.[k]??'—')]);
+  }
+  const css='style="padding:.45rem .5rem;border-bottom:1px solid var(--bg3);font-size:.78rem"';
+  const html=`<h2>Comparison</h2><div style="overflow-x:auto"><div class="compare-grid" style="grid-template-columns:140px repeat(${ms.length},minmax(140px,1fr))">${rows.map((r,i)=>r.map((c,j)=>`<div ${css} class="${j===0?'h':(typeof c==='number'&&c>=70?'val-good':'cell')}">${c}</div>`).join('')).join('')}</div></div>`;
+  document.getElementById('modalBody').innerHTML=html;
+  document.getElementById('modal').classList.add('on');
+}
+</script>
+</body>
+</html>

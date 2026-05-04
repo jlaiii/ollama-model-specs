@@ -1,0 +1,6197 @@
+[
+  {
+    "name": "alfred",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "alfred"
+  },
+  {
+    "name": "all-minilm",
+    "params": [
+      "22M",
+      "33M"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "4 GB",
+      "rec_ram": "8 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "4 GB",
+      "gpu": "either",
+      "notes": "Tiny model. Runs great on CPU; GPU speeds up inference."
+    },
+    "vram_gb": {
+      "Q2_K": 0.0,
+      "Q4_K_M": 0.0,
+      "Q5_K_M": 0.0,
+      "Q8_0": 0.0,
+      "FP16": 0.1
+    },
+    "family": "allminilm"
+  },
+  {
+    "name": "athene-v2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "athenev2"
+  },
+  {
+    "name": "aya",
+    "params": [
+      "8B",
+      "35B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 75.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 12.2,
+      "Q4_K_M": 19.2,
+      "Q5_K_M": 22.8,
+      "Q8_0": 35.0,
+      "FP16": 70.0
+    },
+    "family": "aya"
+  },
+  {
+    "name": "aya-expanse",
+    "params": [
+      "8B",
+      "32B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 81.0,
+      "MMLU-Pro": 54.0,
+      "Arena": 1224
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 11.2,
+      "Q4_K_M": 17.6,
+      "Q5_K_M": 20.8,
+      "Q8_0": 32.0,
+      "FP16": 64.0
+    },
+    "family": "ayaexpanse"
+  },
+  {
+    "name": "bakllava",
+    "params": [
+      "7B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.4,
+      "Q4_K_M": 3.9,
+      "Q5_K_M": 4.5,
+      "Q8_0": 7.0,
+      "FP16": 14.0
+    },
+    "family": "bakllava"
+  },
+  {
+    "name": "bespoke-minicheck",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "bespokeminicheck"
+  },
+  {
+    "name": "bge-large",
+    "params": [
+      "335M"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "4 GB",
+      "rec_ram": "8 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "4 GB",
+      "gpu": "either",
+      "notes": "Tiny model. Runs great on CPU; GPU speeds up inference."
+    },
+    "vram_gb": {
+      "Q2_K": 0.1,
+      "Q4_K_M": 0.2,
+      "Q5_K_M": 0.2,
+      "Q8_0": 0.3,
+      "FP16": 0.7
+    },
+    "family": "bgelarge"
+  },
+  {
+    "name": "bge-m3",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "bgem3"
+  },
+  {
+    "name": "codebooga",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "codebooga"
+  },
+  {
+    "name": "codegeex4",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "codegeex4"
+  },
+  {
+    "name": "codegemma",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "codegemma"
+  },
+  {
+    "name": "codellama",
+    "params": [
+      "7B",
+      "13B",
+      "34B",
+      "70B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {
+      "MMLU": 58.0,
+      "MATH": 36.0,
+      "HE": 92.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 24.5,
+      "Q4_K_M": 38.5,
+      "Q5_K_M": 45.5,
+      "Q8_0": 70.0,
+      "FP16": 140.0
+    },
+    "family": "codellama"
+  },
+  {
+    "name": "codeqwen",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "codeqwen"
+  },
+  {
+    "name": "codestral",
+    "params": [
+      "22B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {
+      "HE": 82.0
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 7.7,
+      "Q4_K_M": 12.1,
+      "Q5_K_M": 14.3,
+      "Q8_0": 22.0,
+      "FP16": 44.0
+    },
+    "family": "codestral"
+  },
+  {
+    "name": "codeup",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "codeup"
+  },
+  {
+    "name": "cogito",
+    "params": [
+      "8B",
+      "14B",
+      "70B"
+    ],
+    "capabilities": [
+      "reasoning"
+    ],
+    "benchmarks": {
+      "MMLU": 91.7,
+      "MATH": 60.2
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 24.5,
+      "Q4_K_M": 38.5,
+      "Q5_K_M": 45.5,
+      "Q8_0": 70.0,
+      "FP16": 140.0
+    },
+    "family": "cogito"
+  },
+  {
+    "name": "cogito-2.1",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "reasoning"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "cogito21"
+  },
+  {
+    "name": "command-a",
+    "params": [
+      "111B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 82.0,
+      "MMLU-Pro": 55.0,
+      "HE": 75.0
+    },
+    "requirements": {
+      "min_ram": "128 GB",
+      "rec_ram": "256 GB",
+      "min_vram": "64 GB",
+      "rec_vram": "80-128 GB",
+      "gpu": "required",
+      "notes": "Enterprise / multi-GPU setup."
+    },
+    "vram_gb": {
+      "Q2_K": 38.8,
+      "Q4_K_M": 61.1,
+      "Q5_K_M": 72.2,
+      "Q8_0": 111.0,
+      "FP16": 222.0
+    },
+    "family": "commanda"
+  },
+  {
+    "name": "command-r",
+    "params": [
+      "35B"
+    ],
+    "capabilities": [
+      "chat",
+      "tool-use"
+    ],
+    "benchmarks": {
+      "MMLU": 69.0,
+      "MMLU-Pro": 42.0,
+      "HE": 50.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 12.2,
+      "Q4_K_M": 19.2,
+      "Q5_K_M": 22.8,
+      "Q8_0": 35.0,
+      "FP16": 70.0
+    },
+    "family": "commandr"
+  },
+  {
+    "name": "command-r-plus",
+    "params": [
+      "104B"
+    ],
+    "capabilities": [
+      "chat",
+      "tool-use"
+    ],
+    "benchmarks": {
+      "MMLU": 77.0,
+      "MMLU-Pro": 50.0,
+      "HE": 70.0
+    },
+    "requirements": {
+      "min_ram": "128 GB",
+      "rec_ram": "256 GB",
+      "min_vram": "64 GB",
+      "rec_vram": "80-128 GB",
+      "gpu": "required",
+      "notes": "Enterprise / multi-GPU setup."
+    },
+    "vram_gb": {
+      "Q2_K": 36.4,
+      "Q4_K_M": 57.2,
+      "Q5_K_M": 67.6,
+      "Q8_0": 104.0,
+      "FP16": 208.0
+    },
+    "family": "commandrplus"
+  },
+  {
+    "name": "command-r7b",
+    "params": [
+      "7B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 72.0,
+      "MMLU-Pro": 44.0,
+      "HE": 55.0
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.4,
+      "Q4_K_M": 3.9,
+      "Q5_K_M": 4.5,
+      "Q8_0": 7.0,
+      "FP16": 14.0
+    },
+    "family": "commandr7b"
+  },
+  {
+    "name": "command-r7b-arabic",
+    "params": [
+      "7B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.4,
+      "Q4_K_M": 3.9,
+      "Q5_K_M": 4.5,
+      "Q8_0": 7.0,
+      "FP16": 14.0
+    },
+    "family": "commandr7barabic"
+  },
+  {
+    "name": "dbrx",
+    "params": [
+      "132B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 73.7,
+      "HE": 81.4
+    },
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 46.2,
+      "Q4_K_M": 72.6,
+      "Q5_K_M": 85.8,
+      "Q8_0": 132.0,
+      "FP16": 264.0
+    },
+    "family": "dbrx"
+  },
+  {
+    "name": "deepcoder",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "deepcoder"
+  },
+  {
+    "name": "deepscaler",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "reasoning"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "deepscaler"
+  },
+  {
+    "name": "deepseek-coder",
+    "params": [
+      "1.3B",
+      "6.7B",
+      "33B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {
+      "HE": 50.3
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 11.5,
+      "Q4_K_M": 18.2,
+      "Q5_K_M": 21.4,
+      "Q8_0": 33.0,
+      "FP16": 66.0
+    },
+    "family": "deepseekcoder"
+  },
+  {
+    "name": "deepseek-coder-v2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {
+      "MATH": 75.7,
+      "HE": 90.2
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "deepseekcoderv2"
+  },
+  {
+    "name": "deepseek-llm",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 68.0,
+      "HE": 41.0
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "deepseekllm"
+  },
+  {
+    "name": "deepseek-ocr",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "ocr"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "deepseekocr"
+  },
+  {
+    "name": "deepseek-r1",
+    "params": [
+      "1.5B",
+      "7B",
+      "14B",
+      "32B",
+      "70B",
+      "671B"
+    ],
+    "capabilities": [
+      "math",
+      "reasoning"
+    ],
+    "benchmarks": {
+      "MMLU": 90.8,
+      "MMLU-Pro": 84.0,
+      "MATH": 97.3,
+      "HE": 96.4,
+      "GPQA": 71.5,
+      "SWE": 49.2
+    },
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 234.8,
+      "Q4_K_M": 369.1,
+      "Q5_K_M": 436.2,
+      "Q8_0": 671.0,
+      "FP16": 1342.0
+    },
+    "family": "deepseekr1"
+  },
+  {
+    "name": "deepseek-v2",
+    "params": [
+      "16B",
+      "236B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 76.2
+    },
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 82.6,
+      "Q4_K_M": 129.8,
+      "Q5_K_M": 153.4,
+      "Q8_0": 236.0,
+      "FP16": 472.0
+    },
+    "family": "deepseekv2"
+  },
+  {
+    "name": "deepseek-v2.5",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 78.5
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "deepseekv25"
+  },
+  {
+    "name": "deepseek-v3",
+    "params": [
+      "671B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 88.5,
+      "MMLU-Pro": 75.9,
+      "MATH": 90.5,
+      "HE": 92.0,
+      "GPQA": 59.1
+    },
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 234.8,
+      "Q4_K_M": 369.1,
+      "Q5_K_M": 436.2,
+      "Q8_0": 671.0,
+      "FP16": 1342.0
+    },
+    "family": "deepseekv3"
+  },
+  {
+    "name": "deepseek-v3.1",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 88.5,
+      "MMLU-Pro": 76.0,
+      "MATH": 91.0,
+      "HE": 92.5,
+      "GPQA": 59.5
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "deepseekv31"
+  },
+  {
+    "name": "deepseek-v3.2",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 89.0,
+      "MMLU-Pro": 76.5,
+      "MATH": 91.5,
+      "HE": 93.0,
+      "GPQA": 60.0
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "deepseekv32"
+  },
+  {
+    "name": "deepseek-v4-flash",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "deepseekv4flash"
+  },
+  {
+    "name": "deepseek-v4-pro",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "deepseekv4pro"
+  },
+  {
+    "name": "devstral",
+    "params": [
+      "16B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {
+      "HE": 82.0,
+      "SWE": 65.8
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 5.6,
+      "Q4_K_M": 8.8,
+      "Q5_K_M": 10.4,
+      "Q8_0": 16.0,
+      "FP16": 32.0
+    },
+    "family": "devstral"
+  },
+  {
+    "name": "devstral-2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "devstral2"
+  },
+  {
+    "name": "devstral-small-2",
+    "params": [
+      "7B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.4,
+      "Q4_K_M": 3.9,
+      "Q5_K_M": 4.5,
+      "Q8_0": 7.0,
+      "FP16": 14.0
+    },
+    "family": "devstralsmall2"
+  },
+  {
+    "name": "dolphin-llama3",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "chat",
+      "uncensored"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "dolphinllama3"
+  },
+  {
+    "name": "dolphin-mistral",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "dolphinmistral"
+  },
+  {
+    "name": "dolphin-mixtral",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "uncensored",
+      "moemodel"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "dolphinmixtral"
+  },
+  {
+    "name": "dolphin-phi",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "dolphinphi"
+  },
+  {
+    "name": "dolphin3",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "dolphin3"
+  },
+  {
+    "name": "dolphincoder",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "dolphincoder"
+  },
+  {
+    "name": "duckdb-nsql",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "duckdbnsql"
+  },
+  {
+    "name": "embeddinggemma",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "embeddinggemma"
+  },
+  {
+    "name": "everythinglm",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "everythinglm"
+  },
+  {
+    "name": "exaone-deep",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "exaonedeep"
+  },
+  {
+    "name": "exaone3.5",
+    "params": [
+      "7.8B",
+      "32B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 11.2,
+      "Q4_K_M": 17.6,
+      "Q5_K_M": 20.8,
+      "Q8_0": 32.0,
+      "FP16": 64.0
+    },
+    "family": "exaone35"
+  },
+  {
+    "name": "falcon",
+    "params": [
+      "7B",
+      "40B",
+      "180B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 63.0,
+      "Q4_K_M": 99.0,
+      "Q5_K_M": 117.0,
+      "Q8_0": 180.0,
+      "FP16": 360.0
+    },
+    "family": "falcon"
+  },
+  {
+    "name": "falcon2",
+    "params": [
+      "11B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "24 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "10 GB",
+      "rec_vram": "12-16 GB",
+      "gpu": "recommended",
+      "notes": "Needs decent GPU for usable speed."
+    },
+    "vram_gb": {
+      "Q2_K": 3.8,
+      "Q4_K_M": 6.1,
+      "Q5_K_M": 7.2,
+      "Q8_0": 11.0,
+      "FP16": 22.0
+    },
+    "family": "falcon2"
+  },
+  {
+    "name": "falcon3",
+    "params": [
+      "7B",
+      "10B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "24 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "10 GB",
+      "rec_vram": "12-16 GB",
+      "gpu": "recommended",
+      "notes": "Needs decent GPU for usable speed."
+    },
+    "vram_gb": {
+      "Q2_K": 3.5,
+      "Q4_K_M": 5.5,
+      "Q5_K_M": 6.5,
+      "Q8_0": 10.0,
+      "FP16": 20.0
+    },
+    "family": "falcon3"
+  },
+  {
+    "name": "firefunction-v2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "tool-use"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "firefunctionv2"
+  },
+  {
+    "name": "functiongemma",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "functiongemma"
+  },
+  {
+    "name": "gemini-3-flash-preview",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "gemini3flashpreview"
+  },
+  {
+    "name": "gemma",
+    "params": [
+      "2B",
+      "4B",
+      "7B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 42.3,
+      "HE": 32.3
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.4,
+      "Q4_K_M": 3.9,
+      "Q5_K_M": 4.5,
+      "Q8_0": 7.0,
+      "FP16": 14.0
+    },
+    "family": "gemma"
+  },
+  {
+    "name": "gemma2",
+    "params": [
+      "2B",
+      "4B",
+      "9B",
+      "27B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 74.0,
+      "MMLU-Pro": 49.1,
+      "MATH": 52.4,
+      "HE": 56.7
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 9.4,
+      "Q4_K_M": 14.9,
+      "Q5_K_M": 17.6,
+      "Q8_0": 27.0,
+      "FP16": 54.0
+    },
+    "family": "gemma2"
+  },
+  {
+    "name": "gemma3",
+    "params": [
+      "1B",
+      "4B",
+      "12B",
+      "27B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {
+      "MMLU": 72.0,
+      "MMLU-Pro": 67.5,
+      "MATH": 89.0,
+      "HE": 74.9
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 9.4,
+      "Q4_K_M": 14.9,
+      "Q5_K_M": 17.6,
+      "Q8_0": 27.0,
+      "FP16": 54.0
+    },
+    "family": "gemma3"
+  },
+  {
+    "name": "gemma3n",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "gemma3n"
+  },
+  {
+    "name": "gemma4",
+    "params": [
+      "4B",
+      "12B",
+      "27B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {
+      "MMLU": 87.1,
+      "HE": 82.7
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 9.4,
+      "Q4_K_M": 14.9,
+      "Q5_K_M": 17.6,
+      "Q8_0": 27.0,
+      "FP16": 54.0
+    },
+    "family": "gemma4"
+  },
+  {
+    "name": "glm-4.6",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MATH": 82.8,
+      "SWE": 68.0
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "glm46"
+  },
+  {
+    "name": "glm-4.7",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "glm47"
+  },
+  {
+    "name": "glm-4.7-flash",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "glm47flash"
+  },
+  {
+    "name": "glm-5",
+    "params": [
+      "5B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MATH": 95.0,
+      "GPQA": 94.0
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 1.8,
+      "Q4_K_M": 2.8,
+      "Q5_K_M": 3.2,
+      "Q8_0": 5.0,
+      "FP16": 10.0
+    },
+    "family": "glm5"
+  },
+  {
+    "name": "glm-5.1",
+    "params": [
+      "5B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "SWE": 71.6
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 1.8,
+      "Q4_K_M": 2.8,
+      "Q5_K_M": 3.2,
+      "Q8_0": 5.0,
+      "FP16": 10.0
+    },
+    "family": "glm51"
+  },
+  {
+    "name": "glm-ocr",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "ocr"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "glmocr"
+  },
+  {
+    "name": "glm4",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "glm4"
+  },
+  {
+    "name": "goliath",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "goliath"
+  },
+  {
+    "name": "gpt-oss",
+    "params": [
+      "20B",
+      "120B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "128 GB",
+      "rec_ram": "256 GB",
+      "min_vram": "64 GB",
+      "rec_vram": "80-128 GB",
+      "gpu": "required",
+      "notes": "Enterprise / multi-GPU setup."
+    },
+    "vram_gb": {
+      "Q2_K": 42.0,
+      "Q4_K_M": 66.0,
+      "Q5_K_M": 78.0,
+      "Q8_0": 120.0,
+      "FP16": 240.0
+    },
+    "family": "gptoss"
+  },
+  {
+    "name": "gpt-oss-safeguard",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "safety"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "gptosssafeguard"
+  },
+  {
+    "name": "granite-code",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "granitecode"
+  },
+  {
+    "name": "granite-embedding",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "graniteembedding"
+  },
+  {
+    "name": "granite3-dense",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "granite3dense"
+  },
+  {
+    "name": "granite3-guardian",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "safety"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "granite3guardian"
+  },
+  {
+    "name": "granite3-moe",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "moemodel"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "granite3moe"
+  },
+  {
+    "name": "granite3.1-dense",
+    "params": [
+      "2B",
+      "8B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 67.0,
+      "MATH": 45.0,
+      "HE": 50.0,
+      "BBH": 55.0
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.8,
+      "Q4_K_M": 4.4,
+      "Q5_K_M": 5.2,
+      "Q8_0": 8.0,
+      "FP16": 16.0
+    },
+    "family": "granite31dense"
+  },
+  {
+    "name": "granite3.1-moe",
+    "params": [
+      "1B",
+      "3B"
+    ],
+    "capabilities": [
+      "moemodel"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "granite31moe"
+  },
+  {
+    "name": "granite3.2",
+    "params": [
+      "2B",
+      "8B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 70.0,
+      "MATH": 48.0,
+      "HE": 55.0,
+      "BBH": 58.0
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.8,
+      "Q4_K_M": 4.4,
+      "Q5_K_M": 5.2,
+      "Q8_0": 8.0,
+      "FP16": 16.0
+    },
+    "family": "granite32"
+  },
+  {
+    "name": "granite3.2-vision",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "granite32vision"
+  },
+  {
+    "name": "granite3.3",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "granite33"
+  },
+  {
+    "name": "granite4",
+    "params": [
+      "8B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.8,
+      "Q4_K_M": 4.4,
+      "Q5_K_M": 5.2,
+      "Q8_0": 8.0,
+      "FP16": 16.0
+    },
+    "family": "granite4"
+  },
+  {
+    "name": "granite4.1",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "HE": 87.2
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "granite41"
+  },
+  {
+    "name": "hermes3",
+    "params": [
+      "8B",
+      "70B",
+      "405B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 141.8,
+      "Q4_K_M": 222.8,
+      "Q5_K_M": 263.2,
+      "Q8_0": 405.0,
+      "FP16": 810.0
+    },
+    "family": "hermes3"
+  },
+  {
+    "name": "internlm2",
+    "params": [
+      "7B",
+      "20B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 65.3,
+      "MATH": 43.9,
+      "HE": 79.0
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 7.0,
+      "Q4_K_M": 11.0,
+      "Q5_K_M": 13.0,
+      "Q8_0": 20.0,
+      "FP16": 40.0
+    },
+    "family": "internlm2"
+  },
+  {
+    "name": "kimi-k2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "SWE": 65.8
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "kimik2"
+  },
+  {
+    "name": "kimi-k2-thinking",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "kimik2thinking"
+  },
+  {
+    "name": "kimi-k2.5",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MATH": 98.0,
+      "HE": 99.0,
+      "GPQA": 87.6,
+      "SWE": 76.8
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "kimik25"
+  },
+  {
+    "name": "kimi-k2.6",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "kimik26"
+  },
+  {
+    "name": "laguna-xs.2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "lagunaxs2"
+  },
+  {
+    "name": "lfm2",
+    "params": [
+      "40B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 14.0,
+      "Q4_K_M": 22.0,
+      "Q5_K_M": 26.0,
+      "Q8_0": 40.0,
+      "FP16": 80.0
+    },
+    "family": "lfm2"
+  },
+  {
+    "name": "lfm2.5-thinking",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "reasoning"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "lfm25thinking"
+  },
+  {
+    "name": "llama-guard3",
+    "params": [
+      "1B",
+      "8B"
+    ],
+    "capabilities": [
+      "safety"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.8,
+      "Q4_K_M": 4.4,
+      "Q5_K_M": 5.2,
+      "Q8_0": 8.0,
+      "FP16": 16.0
+    },
+    "family": "llamaguard3"
+  },
+  {
+    "name": "llama-pro",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "llamapro"
+  },
+  {
+    "name": "llama2",
+    "params": [
+      "7B",
+      "13B",
+      "70B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 55.0,
+      "MATH": 6.0,
+      "HE": 18.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 24.5,
+      "Q4_K_M": 38.5,
+      "Q5_K_M": 45.5,
+      "Q8_0": 70.0,
+      "FP16": 140.0
+    },
+    "family": "llama2"
+  },
+  {
+    "name": "llama2-chinese",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "llama2chinese"
+  },
+  {
+    "name": "llama2-uncensored",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "uncensored"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "llama2uncensored"
+  },
+  {
+    "name": "llama3",
+    "params": [
+      "8B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 68.4,
+      "MATH": 30.0,
+      "HE": 62.2,
+      "GPQA": 34.2
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.8,
+      "Q4_K_M": 4.4,
+      "Q5_K_M": 5.2,
+      "Q8_0": 8.0,
+      "FP16": 16.0
+    },
+    "family": "llama3"
+  },
+  {
+    "name": "llama3-chatqa",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "llama3chatqa"
+  },
+  {
+    "name": "llama3-gradient",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "llama3gradient"
+  },
+  {
+    "name": "llama3-groq-tool-use",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "tool-use"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "llama3groqtooluse"
+  },
+  {
+    "name": "llama3.1",
+    "params": [
+      "8B",
+      "70B",
+      "405B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 86.0,
+      "MMLU-Pro": 60.0,
+      "MATH": 64.6,
+      "HE": 80.5,
+      "GPQA": 46.1,
+      "Arena": 1256,
+      "BBH": 82.0,
+      "IF": 85.2
+    },
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 141.8,
+      "Q4_K_M": 222.8,
+      "Q5_K_M": 263.2,
+      "Q8_0": 405.0,
+      "FP16": 810.0
+    },
+    "family": "llama31"
+  },
+  {
+    "name": "llama3.2",
+    "params": [
+      "1B",
+      "3B"
+    ],
+    "capabilities": [
+      "chat",
+      "small"
+    ],
+    "benchmarks": {
+      "MMLU": 46.0,
+      "MATH": 19.0,
+      "HE": 19.0
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "llama32"
+  },
+  {
+    "name": "llama3.2-vision",
+    "params": [
+      "11B",
+      "90B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "128 GB",
+      "rec_ram": "256 GB",
+      "min_vram": "64 GB",
+      "rec_vram": "80-128 GB",
+      "gpu": "required",
+      "notes": "Enterprise / multi-GPU setup."
+    },
+    "vram_gb": {
+      "Q2_K": 31.5,
+      "Q4_K_M": 49.5,
+      "Q5_K_M": 58.5,
+      "Q8_0": 90.0,
+      "FP16": 180.0
+    },
+    "family": "llama32vision"
+  },
+  {
+    "name": "llama3.3",
+    "params": [
+      "70B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 86.8,
+      "MMLU-Pro": 68.9,
+      "MATH": 65.5,
+      "HE": 82.0,
+      "GPQA": 50.0,
+      "Arena": 1259
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 24.5,
+      "Q4_K_M": 38.5,
+      "Q5_K_M": 45.5,
+      "Q8_0": 70.0,
+      "FP16": 140.0
+    },
+    "family": "llama33"
+  },
+  {
+    "name": "llama4",
+    "params": [
+      "17B",
+      "109B",
+      "400B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 85.5,
+      "GPQA": 68.5,
+      "Arena": 1302
+    },
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 140.0,
+      "Q4_K_M": 220.0,
+      "Q5_K_M": 260.0,
+      "Q8_0": 400.0,
+      "FP16": 800.0
+    },
+    "family": "llama4"
+  },
+  {
+    "name": "llava",
+    "params": [
+      "7B",
+      "13B",
+      "34B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 11.9,
+      "Q4_K_M": 18.7,
+      "Q5_K_M": 22.1,
+      "Q8_0": 34.0,
+      "FP16": 68.0
+    },
+    "family": "llava"
+  },
+  {
+    "name": "llava-llama3",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "llavallama3"
+  },
+  {
+    "name": "llava-phi3",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "llavaphi3"
+  },
+  {
+    "name": "magicoder",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "magicoder"
+  },
+  {
+    "name": "magistral",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "magistral"
+  },
+  {
+    "name": "marco-o1",
+    "params": [
+      "1B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "4 GB",
+      "rec_ram": "8 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "4 GB",
+      "gpu": "either",
+      "notes": "Tiny model. Runs great on CPU; GPU speeds up inference."
+    },
+    "vram_gb": {
+      "Q2_K": 0.3,
+      "Q4_K_M": 0.6,
+      "Q5_K_M": 0.7,
+      "Q8_0": 1.0,
+      "FP16": 2.0
+    },
+    "family": "marcoo1"
+  },
+  {
+    "name": "mathstral",
+    "params": [
+      "7B"
+    ],
+    "capabilities": [
+      "math"
+    ],
+    "benchmarks": {
+      "MMLU": 63.47,
+      "MATH": 56.6
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.4,
+      "Q4_K_M": 3.9,
+      "Q5_K_M": 4.5,
+      "Q8_0": 7.0,
+      "FP16": 14.0
+    },
+    "family": "mathstral"
+  },
+  {
+    "name": "medgemma",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "medical"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "medgemma"
+  },
+  {
+    "name": "medgemma1.5",
+    "params": [
+      "1B"
+    ],
+    "capabilities": [
+      "medical"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "4 GB",
+      "rec_ram": "8 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "4 GB",
+      "gpu": "either",
+      "notes": "Tiny model. Runs great on CPU; GPU speeds up inference."
+    },
+    "vram_gb": {
+      "Q2_K": 0.3,
+      "Q4_K_M": 0.6,
+      "Q5_K_M": 0.7,
+      "Q8_0": 1.0,
+      "FP16": 2.0
+    },
+    "family": "medgemma15"
+  },
+  {
+    "name": "meditron",
+    "params": [
+      "7B",
+      "70B"
+    ],
+    "capabilities": [
+      "medical"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 24.5,
+      "Q4_K_M": 38.5,
+      "Q5_K_M": 45.5,
+      "Q8_0": 70.0,
+      "FP16": 140.0
+    },
+    "family": "meditron"
+  },
+  {
+    "name": "medllama2",
+    "params": [
+      "7B"
+    ],
+    "capabilities": [
+      "medical"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.4,
+      "Q4_K_M": 3.9,
+      "Q5_K_M": 4.5,
+      "Q8_0": 7.0,
+      "FP16": 14.0
+    },
+    "family": "medllama2"
+  },
+  {
+    "name": "megadolphin",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "megadolphin"
+  },
+  {
+    "name": "minicpm-v",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "minicpmv"
+  },
+  {
+    "name": "minimax-m2",
+    "params": [
+      "456B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 159.6,
+      "Q4_K_M": 250.8,
+      "Q5_K_M": 296.4,
+      "Q8_0": 456.0,
+      "FP16": 912.0
+    },
+    "family": "minimaxm2"
+  },
+  {
+    "name": "minimax-m2.1",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "minimaxm21"
+  },
+  {
+    "name": "minimax-m2.5",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "minimaxm25"
+  },
+  {
+    "name": "minimax-m2.7",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "minimaxm27"
+  },
+  {
+    "name": "ministral-3",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [
+      "small"
+    ],
+    "benchmarks": {
+      "MMLU": 70.7,
+      "MATH": 60.1
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "ministral3"
+  },
+  {
+    "name": "mistral",
+    "params": [
+      "7B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 60.0,
+      "MATH": 40.0,
+      "HE": 65.0,
+      "BBH": 52.0,
+      "Arena": 1050
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.4,
+      "Q4_K_M": 3.9,
+      "Q5_K_M": 4.5,
+      "Q8_0": 7.0,
+      "FP16": 14.0
+    },
+    "family": "mistral"
+  },
+  {
+    "name": "mistral-large",
+    "params": [
+      "32B",
+      "123B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 84.0,
+      "HE": 92.0,
+      "BBH": 78.0,
+      "Arena": 1200
+    },
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 43.0,
+      "Q4_K_M": 67.7,
+      "Q5_K_M": 80.0,
+      "Q8_0": 123.0,
+      "FP16": 246.0
+    },
+    "family": "mistrallarge"
+  },
+  {
+    "name": "mistral-large-3",
+    "params": [
+      "32B",
+      "123B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 85.5,
+      "MMLU-Pro": 83.0,
+      "MATH": 75.0,
+      "HE": 92.0,
+      "GPQA": 43.9,
+      "SWE": 41.0,
+      "BBH": 76.0,
+      "Arena": 1200
+    },
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 43.0,
+      "Q4_K_M": 67.7,
+      "Q5_K_M": 80.0,
+      "Q8_0": 123.0,
+      "FP16": 246.0
+    },
+    "family": "mistrallarge3"
+  },
+  {
+    "name": "mistral-medium-3.5",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "SWE": 77.6
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "mistralmedium35"
+  },
+  {
+    "name": "mistral-nemo",
+    "params": [
+      "12B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 68.0,
+      "MATH": 50.0,
+      "HE": 38.0,
+      "BBH": 55.0
+    },
+    "requirements": {
+      "min_ram": "24 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "10 GB",
+      "rec_vram": "12-16 GB",
+      "gpu": "recommended",
+      "notes": "Needs decent GPU for usable speed."
+    },
+    "vram_gb": {
+      "Q2_K": 4.2,
+      "Q4_K_M": 6.6,
+      "Q5_K_M": 7.8,
+      "Q8_0": 12.0,
+      "FP16": 24.0
+    },
+    "family": "mistralnemo"
+  },
+  {
+    "name": "mistral-openorca",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "mistralopenorca"
+  },
+  {
+    "name": "mistral-small",
+    "params": [
+      "22B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 7.7,
+      "Q4_K_M": 12.1,
+      "Q5_K_M": 14.3,
+      "Q8_0": 22.0,
+      "FP16": 44.0
+    },
+    "family": "mistralsmall"
+  },
+  {
+    "name": "mistral-small3.1",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 81.0,
+      "MATH": 65.0,
+      "HE": 78.0,
+      "Arena": 1120,
+      "BBH": 72.0
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "mistralsmall31"
+  },
+  {
+    "name": "mistral-small3.2",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "mistralsmall32"
+  },
+  {
+    "name": "mistrallite",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "mistrallite"
+  },
+  {
+    "name": "mixtral",
+    "params": [
+      "47B",
+      "141B"
+    ],
+    "capabilities": [
+      "chat",
+      "moemodel"
+    ],
+    "benchmarks": {
+      "MMLU": 70.6,
+      "MATH": 28.4,
+      "HE": 54.9,
+      "BBH": 56.7,
+      "Arena": 1115
+    },
+    "requirements": {
+      "min_ram": "256 GB+",
+      "rec_ram": "512 GB+",
+      "min_vram": "128 GB+",
+      "rec_vram": "256 GB+",
+      "gpu": "required",
+      "notes": "Datacenter cluster only."
+    },
+    "vram_gb": {
+      "Q2_K": 49.3,
+      "Q4_K_M": 77.6,
+      "Q5_K_M": 91.7,
+      "Q8_0": 141.0,
+      "FP16": 282.0
+    },
+    "family": "mixtral"
+  },
+  {
+    "name": "moondream",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "moondream"
+  },
+  {
+    "name": "mxbai-embed-large",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "mxbaiembedlarge"
+  },
+  {
+    "name": "nemotron",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "nemotron"
+  },
+  {
+    "name": "nemotron-3-nano",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "nemotron3nano"
+  },
+  {
+    "name": "nemotron-3-super",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "nemotron3super"
+  },
+  {
+    "name": "nemotron-cascade-2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "reasoning"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "nemotroncascade2"
+  },
+  {
+    "name": "nemotron-mini",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "nemotronmini"
+  },
+  {
+    "name": "nemotron3",
+    "params": [
+      "8B",
+      "70B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 24.5,
+      "Q4_K_M": 38.5,
+      "Q5_K_M": 45.5,
+      "Q8_0": 70.0,
+      "FP16": 140.0
+    },
+    "family": "nemotron3"
+  },
+  {
+    "name": "neural-chat",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 60.0
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "neuralchat"
+  },
+  {
+    "name": "nexusraven",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "nexusraven"
+  },
+  {
+    "name": "nomic-embed-text",
+    "params": [
+      "137M"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "4 GB",
+      "rec_ram": "8 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "4 GB",
+      "gpu": "either",
+      "notes": "Tiny model. Runs great on CPU; GPU speeds up inference."
+    },
+    "vram_gb": {
+      "Q2_K": 0.0,
+      "Q4_K_M": 0.1,
+      "Q5_K_M": 0.1,
+      "Q8_0": 0.1,
+      "FP16": 0.3
+    },
+    "family": "nomicembedtext"
+  },
+  {
+    "name": "nomic-embed-text-v2-moe",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "embedding",
+      "moemodel"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "nomicembedtextv2moe"
+  },
+  {
+    "name": "notus",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 61.0
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "notus"
+  },
+  {
+    "name": "notux",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "notux"
+  },
+  {
+    "name": "nous-hermes",
+    "params": [
+      "7B",
+      "13B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 54.0,
+      "HE": 28.0
+    },
+    "requirements": {
+      "min_ram": "24 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "10 GB",
+      "rec_vram": "12-16 GB",
+      "gpu": "recommended",
+      "notes": "Needs decent GPU for usable speed."
+    },
+    "vram_gb": {
+      "Q2_K": 4.5,
+      "Q4_K_M": 7.2,
+      "Q5_K_M": 8.5,
+      "Q8_0": 13.0,
+      "FP16": 26.0
+    },
+    "family": "noushermes"
+  },
+  {
+    "name": "nous-hermes2",
+    "params": [
+      "10.7B",
+      "34B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 69.0,
+      "HE": 32.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 11.9,
+      "Q4_K_M": 18.7,
+      "Q5_K_M": 22.1,
+      "Q8_0": 34.0,
+      "FP16": 68.0
+    },
+    "family": "noushermes2"
+  },
+  {
+    "name": "nous-hermes2-mixtral",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "moemodel"
+    ],
+    "benchmarks": {
+      "MMLU": 72.0,
+      "HE": 33.0
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "noushermes2mixtral"
+  },
+  {
+    "name": "nuextract",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "nuextract"
+  },
+  {
+    "name": "olmo-3",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "olmo3"
+  },
+  {
+    "name": "olmo-3.1",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "olmo31"
+  },
+  {
+    "name": "olmo2",
+    "params": [
+      "7B",
+      "13B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "24 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "10 GB",
+      "rec_vram": "12-16 GB",
+      "gpu": "recommended",
+      "notes": "Needs decent GPU for usable speed."
+    },
+    "vram_gb": {
+      "Q2_K": 4.5,
+      "Q4_K_M": 7.2,
+      "Q5_K_M": 8.5,
+      "Q8_0": 13.0,
+      "FP16": 26.0
+    },
+    "family": "olmo2"
+  },
+  {
+    "name": "open-orca-platypus2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 55.0
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "openorcaplatypus2"
+  },
+  {
+    "name": "openchat",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 62.0,
+      "Arena": 1070
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "openchat"
+  },
+  {
+    "name": "opencoder",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "opencoder"
+  },
+  {
+    "name": "openhermes",
+    "params": [
+      "7B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 64.9,
+      "Arena": 1089
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.4,
+      "Q4_K_M": 3.9,
+      "Q5_K_M": 4.5,
+      "Q8_0": 7.0,
+      "FP16": 14.0
+    },
+    "family": "openhermes"
+  },
+  {
+    "name": "openthinker",
+    "params": [
+      "7B",
+      "14B",
+      "32B"
+    ],
+    "capabilities": [
+      "math",
+      "reasoning"
+    ],
+    "benchmarks": {
+      "MATH": 90.6,
+      "GPQA": 61.6
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 11.2,
+      "Q4_K_M": 17.6,
+      "Q5_K_M": 20.8,
+      "Q8_0": 32.0,
+      "FP16": 64.0
+    },
+    "family": "openthinker"
+  },
+  {
+    "name": "orca-mini",
+    "params": [
+      "3B",
+      "7B",
+      "13B",
+      "70B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 52.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 24.5,
+      "Q4_K_M": 38.5,
+      "Q5_K_M": 45.5,
+      "Q8_0": 70.0,
+      "FP16": 140.0
+    },
+    "family": "orcamini"
+  },
+  {
+    "name": "orca2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 58.0
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "orca2"
+  },
+  {
+    "name": "paraphrase-multilingual",
+    "params": [
+      "278M"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "4 GB",
+      "rec_ram": "8 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "4 GB",
+      "gpu": "either",
+      "notes": "Tiny model. Runs great on CPU; GPU speeds up inference."
+    },
+    "vram_gb": {
+      "Q2_K": 0.1,
+      "Q4_K_M": 0.2,
+      "Q5_K_M": 0.2,
+      "Q8_0": 0.3,
+      "FP16": 0.6
+    },
+    "family": "paraphrasemultilingu"
+  },
+  {
+    "name": "phi",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 59.2,
+      "HE": 52.7,
+      "BBH": 45.6
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "phi"
+  },
+  {
+    "name": "phi3",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 78.0,
+      "MATH": 42.0,
+      "HE": 81.5
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "phi3"
+  },
+  {
+    "name": "phi3.5",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 72.0,
+      "HE": 74.4
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "phi35"
+  },
+  {
+    "name": "phi4",
+    "params": [
+      "14B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 84.8,
+      "MATH": 56.1,
+      "HE": 82.6,
+      "GPQA": 56.1
+    },
+    "requirements": {
+      "min_ram": "24 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "10 GB",
+      "rec_vram": "12-16 GB",
+      "gpu": "recommended",
+      "notes": "Needs decent GPU for usable speed."
+    },
+    "vram_gb": {
+      "Q2_K": 4.9,
+      "Q4_K_M": 7.7,
+      "Q5_K_M": 9.1,
+      "Q8_0": 14.0,
+      "FP16": 28.0
+    },
+    "family": "phi4"
+  },
+  {
+    "name": "phi4-mini",
+    "params": [
+      "3.8B"
+    ],
+    "capabilities": [
+      "small"
+    ],
+    "benchmarks": {
+      "MMLU": 74.0,
+      "MATH": 62.0,
+      "HE": 81.0
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.3,
+      "Q4_K_M": 2.1,
+      "Q5_K_M": 2.5,
+      "Q8_0": 3.8,
+      "FP16": 7.6
+    },
+    "family": "phi4mini"
+  },
+  {
+    "name": "phi4-mini-reasoning",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [
+      "reasoning"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "phi4minireasoning"
+  },
+  {
+    "name": "phi4-reasoning",
+    "params": [
+      "4B"
+    ],
+    "capabilities": [
+      "reasoning"
+    ],
+    "benchmarks": {
+      "MATH": 80.4,
+      "HE": 92.9
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.4,
+      "Q4_K_M": 2.2,
+      "Q5_K_M": 2.6,
+      "Q8_0": 4.0,
+      "FP16": 8.0
+    },
+    "family": "phi4reasoning"
+  },
+  {
+    "name": "phind-codellama",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "phindcodellama"
+  },
+  {
+    "name": "qwen",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "qwen"
+  },
+  {
+    "name": "qwen2",
+    "params": [
+      "7B",
+      "72B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 82.3,
+      "MMLU-Pro": 62.0,
+      "MATH": 70.0,
+      "HE": 75.0,
+      "GPQA": 42.0,
+      "Arena": 1231,
+      "BBH": 72.0,
+      "IF": 70.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 25.2,
+      "Q4_K_M": 39.6,
+      "Q5_K_M": 46.8,
+      "Q8_0": 72.0,
+      "FP16": 144.0
+    },
+    "family": "qwen2"
+  },
+  {
+    "name": "qwen2-math",
+    "params": [
+      "1.5B",
+      "7B",
+      "72B"
+    ],
+    "capabilities": [
+      "math"
+    ],
+    "benchmarks": {
+      "MATH": 90.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 25.2,
+      "Q4_K_M": 39.6,
+      "Q5_K_M": 46.8,
+      "Q8_0": 72.0,
+      "FP16": 144.0
+    },
+    "family": "qwen2math"
+  },
+  {
+    "name": "qwen2.5",
+    "params": [
+      "500M",
+      "1.5B",
+      "3B",
+      "7B",
+      "14B",
+      "32B",
+      "72B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 86.1,
+      "MMLU-Pro": 70.0,
+      "MATH": 83.0,
+      "HE": 86.0,
+      "GPQA": 49.0,
+      "Arena": 1258,
+      "BBH": 80.0,
+      "IF": 82.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 25.2,
+      "Q4_K_M": 39.6,
+      "Q5_K_M": 46.8,
+      "Q8_0": 72.0,
+      "FP16": 144.0
+    },
+    "family": "qwen25"
+  },
+  {
+    "name": "qwen2.5-coder",
+    "params": [
+      "1.5B",
+      "7B",
+      "14B",
+      "32B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {
+      "MMLU": 83.5,
+      "MATH": 75.0,
+      "HE": 90.0,
+      "Arena": 1240
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 11.2,
+      "Q4_K_M": 17.6,
+      "Q5_K_M": 20.8,
+      "Q8_0": 32.0,
+      "FP16": 64.0
+    },
+    "family": "qwen25coder"
+  },
+  {
+    "name": "qwen2.5vl",
+    "params": [
+      "3B",
+      "7B",
+      "72B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 25.2,
+      "Q4_K_M": 39.6,
+      "Q5_K_M": 46.8,
+      "Q8_0": 72.0,
+      "FP16": 144.0
+    },
+    "family": "qwen25vl"
+  },
+  {
+    "name": "qwen3",
+    "params": [
+      "600M",
+      "1.7B",
+      "4B",
+      "8B",
+      "14B",
+      "32B"
+    ],
+    "capabilities": [
+      "moemodel"
+    ],
+    "benchmarks": {
+      "MMLU": 85.0,
+      "MMLU-Pro": 72.0,
+      "MATH": 88.0,
+      "HE": 88.0,
+      "GPQA": 55.0,
+      "Arena": 1280,
+      "BBH": 82.0,
+      "IF": 84.0
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 11.2,
+      "Q4_K_M": 17.6,
+      "Q5_K_M": 20.8,
+      "Q8_0": 32.0,
+      "FP16": 64.0
+    },
+    "family": "qwen3"
+  },
+  {
+    "name": "qwen3-coder",
+    "params": [
+      "1.6B",
+      "4B",
+      "8B",
+      "16B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 5.6,
+      "Q4_K_M": 8.8,
+      "Q5_K_M": 10.4,
+      "Q8_0": 16.0,
+      "FP16": 32.0
+    },
+    "family": "qwen3coder"
+  },
+  {
+    "name": "qwen3-coder-next",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "qwen3codernext"
+  },
+  {
+    "name": "qwen3-embedding",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "qwen3embedding"
+  },
+  {
+    "name": "qwen3-next",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "moemodel"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "qwen3next"
+  },
+  {
+    "name": "qwen3-vl",
+    "params": [
+      "3B"
+    ],
+    "capabilities": [
+      "vision"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 1.0,
+      "Q4_K_M": 1.7,
+      "Q5_K_M": 2.0,
+      "Q8_0": 3.0,
+      "FP16": 6.0
+    },
+    "family": "qwen3vl"
+  },
+  {
+    "name": "qwen3.5",
+    "params": [
+      "8B",
+      "32B"
+    ],
+    "capabilities": [
+      "moemodel"
+    ],
+    "benchmarks": {
+      "MMLU-Pro": 82.5,
+      "GPQA": 81.7
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 11.2,
+      "Q4_K_M": 17.6,
+      "Q5_K_M": 20.8,
+      "Q8_0": 32.0,
+      "FP16": 64.0
+    },
+    "family": "qwen35"
+  },
+  {
+    "name": "qwen3.6",
+    "params": [
+      "72B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MATH": 92.7,
+      "GPQA": 86.0,
+      "SWE": 73.4
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 25.2,
+      "Q4_K_M": 39.6,
+      "Q5_K_M": 46.8,
+      "Q8_0": 72.0,
+      "FP16": 144.0
+    },
+    "family": "qwen36"
+  },
+  {
+    "name": "qwq",
+    "params": [
+      "32B"
+    ],
+    "capabilities": [
+      "math",
+      "reasoning"
+    ],
+    "benchmarks": {
+      "MATH": 95.0
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 11.2,
+      "Q4_K_M": 17.6,
+      "Q5_K_M": 20.8,
+      "Q8_0": 32.0,
+      "FP16": 64.0
+    },
+    "family": "qwq"
+  },
+  {
+    "name": "r1-1776",
+    "params": [
+      "1B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "4 GB",
+      "rec_ram": "8 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "4 GB",
+      "gpu": "either",
+      "notes": "Tiny model. Runs great on CPU; GPU speeds up inference."
+    },
+    "vram_gb": {
+      "Q2_K": 0.3,
+      "Q4_K_M": 0.6,
+      "Q5_K_M": 0.7,
+      "Q8_0": 1.0,
+      "FP16": 2.0
+    },
+    "family": "r11776"
+  },
+  {
+    "name": "reader-lm",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "readerlm"
+  },
+  {
+    "name": "reflection",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "reasoning"
+    ],
+    "benchmarks": {
+      "MMLU": 81.0,
+      "MATH": 73.0
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "reflection"
+  },
+  {
+    "name": "rnj-1",
+    "params": [
+      "1B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "4 GB",
+      "rec_ram": "8 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "4 GB",
+      "gpu": "either",
+      "notes": "Tiny model. Runs great on CPU; GPU speeds up inference."
+    },
+    "vram_gb": {
+      "Q2_K": 0.3,
+      "Q4_K_M": 0.6,
+      "Q5_K_M": 0.7,
+      "Q8_0": 1.0,
+      "FP16": 2.0
+    },
+    "family": "rnj1"
+  },
+  {
+    "name": "sailor2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "sailor2"
+  },
+  {
+    "name": "samantha-mistral",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "samanthamistral"
+  },
+  {
+    "name": "shieldgemma",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "safety"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "shieldgemma"
+  },
+  {
+    "name": "smallthinker",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "smallthinker"
+  },
+  {
+    "name": "smollm",
+    "params": [
+      "135M",
+      "360M",
+      "1.7B"
+    ],
+    "capabilities": [
+      "small"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.6,
+      "Q4_K_M": 0.9,
+      "Q5_K_M": 1.1,
+      "Q8_0": 1.7,
+      "FP16": 3.4
+    },
+    "family": "smollm"
+  },
+  {
+    "name": "smollm2",
+    "params": [
+      "135M",
+      "360M",
+      "1.7B"
+    ],
+    "capabilities": [
+      "small"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.6,
+      "Q4_K_M": 0.9,
+      "Q5_K_M": 1.1,
+      "Q8_0": 1.7,
+      "FP16": 3.4
+    },
+    "family": "smollm2"
+  },
+  {
+    "name": "snowflake-arctic-embed",
+    "params": [
+      "22M",
+      "110M",
+      "335M"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "4 GB",
+      "rec_ram": "8 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "4 GB",
+      "gpu": "either",
+      "notes": "Tiny model. Runs great on CPU; GPU speeds up inference."
+    },
+    "vram_gb": {
+      "Q2_K": 0.1,
+      "Q4_K_M": 0.2,
+      "Q5_K_M": 0.2,
+      "Q8_0": 0.3,
+      "FP16": 0.7
+    },
+    "family": "snowflakearcticembed"
+  },
+  {
+    "name": "snowflake-arctic-embed2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "embedding"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "snowflakearcticembed"
+  },
+  {
+    "name": "solar",
+    "params": [
+      "10.7B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 46.8,
+      "HE": 53.4
+    },
+    "requirements": {
+      "min_ram": "24 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "10 GB",
+      "rec_vram": "12-16 GB",
+      "gpu": "recommended",
+      "notes": "Needs decent GPU for usable speed."
+    },
+    "vram_gb": {
+      "Q2_K": 3.7,
+      "Q4_K_M": 5.9,
+      "Q5_K_M": 7.0,
+      "Q8_0": 10.7,
+      "FP16": 21.4
+    },
+    "family": "solar"
+  },
+  {
+    "name": "solar-pro",
+    "params": [
+      "22B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 7.7,
+      "Q4_K_M": 12.1,
+      "Q5_K_M": 14.3,
+      "Q8_0": 22.0,
+      "FP16": 44.0
+    },
+    "family": "solarpro"
+  },
+  {
+    "name": "sqlcoder",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "sqlcoder"
+  },
+  {
+    "name": "stable-beluga",
+    "params": [
+      "7B",
+      "13B",
+      "70B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 55.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 24.5,
+      "Q4_K_M": 38.5,
+      "Q5_K_M": 45.5,
+      "Q8_0": 70.0,
+      "FP16": 140.0
+    },
+    "family": "stablebeluga"
+  },
+  {
+    "name": "stable-code",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "stablecode"
+  },
+  {
+    "name": "stablelm-zephyr",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "small"
+    ],
+    "benchmarks": {
+      "MMLU": 46.2
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "stablelmzephyr"
+  },
+  {
+    "name": "stablelm2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [
+      "small"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "stablelm2"
+  },
+  {
+    "name": "starcoder",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "starcoder"
+  },
+  {
+    "name": "starcoder2",
+    "params": [
+      "3B",
+      "7B",
+      "15B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {
+      "MMLU": 52.0,
+      "MATH": 35.0,
+      "HE": 46.0
+    },
+    "requirements": {
+      "min_ram": "32 GB",
+      "rec_ram": "64 GB",
+      "min_vram": "18 GB",
+      "rec_vram": "24 GB",
+      "gpu": "recommended",
+      "notes": "24GB VRAM GPU (3090/4090) ideal for Q4."
+    },
+    "vram_gb": {
+      "Q2_K": 5.2,
+      "Q4_K_M": 8.2,
+      "Q5_K_M": 9.8,
+      "Q8_0": 15.0,
+      "FP16": 30.0
+    },
+    "family": "starcoder2"
+  },
+  {
+    "name": "starling-lm",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 61.0,
+      "Arena": 1080
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "starlinglm"
+  },
+  {
+    "name": "tinydolphin",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "small"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "tinydolphin"
+  },
+  {
+    "name": "tinyllama",
+    "params": [
+      "1.1B"
+    ],
+    "capabilities": [
+      "small"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.4,
+      "Q4_K_M": 0.6,
+      "Q5_K_M": 0.7,
+      "Q8_0": 1.1,
+      "FP16": 2.2
+    },
+    "family": "tinyllama"
+  },
+  {
+    "name": "translategemma",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "translategemma"
+  },
+  {
+    "name": "tulu3",
+    "params": [
+      "8B",
+      "70B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 24.5,
+      "Q4_K_M": 38.5,
+      "Q5_K_M": 45.5,
+      "Q8_0": 70.0,
+      "FP16": 140.0
+    },
+    "family": "tulu3"
+  },
+  {
+    "name": "vicuna",
+    "params": [
+      "7B",
+      "13B",
+      "33B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 52.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 11.5,
+      "Q4_K_M": 18.2,
+      "Q5_K_M": 21.4,
+      "Q8_0": 33.0,
+      "FP16": 66.0
+    },
+    "family": "vicuna"
+  },
+  {
+    "name": "wizard-math",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "math"
+    ],
+    "benchmarks": {
+      "MMLU": 55.0,
+      "MATH": 22.7
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "wizardmath"
+  },
+  {
+    "name": "wizard-vicuna",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 52.0
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "wizardvicuna"
+  },
+  {
+    "name": "wizard-vicuna-uncensored",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "uncensored"
+    ],
+    "benchmarks": {
+      "MMLU": 52.0
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "wizardvicunauncensor"
+  },
+  {
+    "name": "wizardcoder",
+    "params": [
+      "33B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {
+      "HE": 73.0
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 11.5,
+      "Q4_K_M": 18.2,
+      "Q5_K_M": 21.4,
+      "Q8_0": 33.0,
+      "FP16": 66.0
+    },
+    "family": "wizardcoder"
+  },
+  {
+    "name": "wizardlm",
+    "params": [
+      "7B",
+      "13B",
+      "30B",
+      "70B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 55.0,
+      "HE": 36.6
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 24.5,
+      "Q4_K_M": 38.5,
+      "Q5_K_M": 45.5,
+      "Q8_0": 70.0,
+      "FP16": 140.0
+    },
+    "family": "wizardlm"
+  },
+  {
+    "name": "wizardlm-uncensored",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "uncensored"
+    ],
+    "benchmarks": {
+      "MMLU": 52.0,
+      "HE": 35.0
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "wizardlmuncensored"
+  },
+  {
+    "name": "wizardlm2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 62.0
+    },
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "wizardlm2"
+  },
+  {
+    "name": "xwinlm",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "xwinlm"
+  },
+  {
+    "name": "yarn-llama2",
+    "params": [
+      "2B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "8 GB",
+      "rec_ram": "16 GB",
+      "min_vram": "0 GB",
+      "rec_vram": "6 GB",
+      "gpu": "either",
+      "notes": "Small model. CPU viable. Small GPU recommended for speed."
+    },
+    "vram_gb": {
+      "Q2_K": 0.7,
+      "Q4_K_M": 1.1,
+      "Q5_K_M": 1.3,
+      "Q8_0": 2.0,
+      "FP16": 4.0
+    },
+    "family": "yarnllama2"
+  },
+  {
+    "name": "yarn-mistral",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [],
+    "benchmarks": {},
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "yarnmistral"
+  },
+  {
+    "name": "yi",
+    "params": [
+      "6B",
+      "9B",
+      "34B"
+    ],
+    "capabilities": [],
+    "benchmarks": {
+      "MMLU": 76.3
+    },
+    "requirements": {
+      "min_ram": "64 GB",
+      "rec_ram": "128 GB",
+      "min_vram": "40 GB",
+      "rec_vram": "48-80 GB",
+      "gpu": "required",
+      "notes": "Requires serious hardware. 80GB A100 for FP16."
+    },
+    "vram_gb": {
+      "Q2_K": 11.9,
+      "Q4_K_M": 18.7,
+      "Q5_K_M": 22.1,
+      "Q8_0": 34.0,
+      "FP16": 68.0
+    },
+    "family": "yi"
+  },
+  {
+    "name": "yi-coder",
+    "params": [
+      "?B"
+    ],
+    "capabilities": [
+      "code"
+    ],
+    "benchmarks": {
+      "MMLU": 68.0,
+      "HE": 85.4
+    },
+    "requirements": {
+      "min_ram": "?",
+      "rec_ram": "?",
+      "min_vram": "?",
+      "rec_vram": "?",
+      "gpu": "either",
+      "notes": "Unknown"
+    },
+    "vram_gb": {
+      "Q2_K": "?",
+      "Q4_K_M": "?",
+      "Q5_K_M": "?",
+      "Q8_0": "?",
+      "FP16": "?"
+    },
+    "family": "yicoder"
+  },
+  {
+    "name": "zephyr",
+    "params": [
+      "7B"
+    ],
+    "capabilities": [
+      "chat"
+    ],
+    "benchmarks": {
+      "MMLU": 61.1,
+      "Arena": 1053
+    },
+    "requirements": {
+      "min_ram": "16 GB",
+      "rec_ram": "32 GB",
+      "min_vram": "6 GB",
+      "rec_vram": "8-12 GB",
+      "gpu": "either",
+      "notes": "Mid-size. CPU with patience. 8GB+ GPU sweet spot."
+    },
+    "vram_gb": {
+      "Q2_K": 2.4,
+      "Q4_K_M": 3.9,
+      "Q5_K_M": 4.5,
+      "Q8_0": 7.0,
+      "FP16": 14.0
+    },
+    "family": "zephyr"
+  }
+]

@@ -1,0 +1,590 @@
+{
+  "llama3": {
+    "MMLU": 68.4,
+    "MATH": 30.0,
+    "HE": 62.2,
+    "GPQA": 34.2
+  },
+  "llama3.1": {
+    "MMLU": 86.0,
+    "MMLU-Pro": 60.0,
+    "MATH": 64.6,
+    "HE": 80.5,
+    "GPQA": 46.1,
+    "Arena": 1256,
+    "BBH": 82.0,
+    "IF": 85.2
+  },
+  "llama3.2": {
+    "MMLU": 46.0,
+    "MATH": 19.0,
+    "HE": 19.0
+  },
+  "llama3.2-vision": {},
+  "llama3.3": {
+    "MMLU": 86.8,
+    "MMLU-Pro": 68.9,
+    "MATH": 65.5,
+    "HE": 82.0,
+    "GPQA": 50.0,
+    "Arena": 1259
+  },
+  "llama4": {
+    "MMLU": 85.5,
+    "GPQA": 68.5,
+    "Arena": 1302
+  },
+  "llama-guard3": {},
+  "llama2": {
+    "MMLU": 55.0,
+    "MATH": 6.0,
+    "HE": 18.0
+  },
+  "llama2-chinese": {},
+  "llama2-uncensored": {},
+  "llama3-chatqa": {},
+  "llama3-gradient": {},
+  "llama3-groq-tool-use": {},
+  "llama-pro": {},
+  "aya": {
+    "MMLU": 75.0
+  },
+  "aya-expanse": {
+    "MMLU": 81.0,
+    "MMLU-Pro": 54.0,
+    "Arena": 1224
+  },
+  "command-a": {
+    "MMLU": 82.0,
+    "MMLU-Pro": 55.0,
+    "HE": 75.0
+  },
+  "command-r": {
+    "MMLU": 69.0,
+    "MMLU-Pro": 42.0,
+    "HE": 50.0
+  },
+  "command-r-plus": {
+    "MMLU": 77.0,
+    "MMLU-Pro": 50.0,
+    "HE": 70.0
+  },
+  "command-r7b": {
+    "MMLU": 72.0,
+    "MMLU-Pro": 44.0,
+    "HE": 55.0
+  },
+  "command-r7b-arabic": {},
+  "dbrx": {
+    "MMLU": 73.7,
+    "HE": 81.4
+  },
+  "qwen2": {
+    "MMLU": 82.3,
+    "MMLU-Pro": 62.0,
+    "MATH": 70.0,
+    "HE": 75.0,
+    "GPQA": 42.0,
+    "Arena": 1231,
+    "BBH": 72.0,
+    "IF": 70.0
+  },
+  "qwen2.5": {
+    "MMLU": 86.1,
+    "MMLU-Pro": 70.0,
+    "MATH": 83.0,
+    "HE": 86.0,
+    "GPQA": 49.0,
+    "Arena": 1258,
+    "BBH": 80.0,
+    "IF": 82.0
+  },
+  "qwen2.5-coder": {
+    "MMLU": 83.5,
+    "MATH": 75.0,
+    "HE": 90.0,
+    "Arena": 1240
+  },
+  "qwen2-math": {
+    "MATH": 90.0
+  },
+  "qwen3": {
+    "MMLU": 85.0,
+    "MMLU-Pro": 72.0,
+    "MATH": 88.0,
+    "HE": 88.0,
+    "GPQA": 55.0,
+    "Arena": 1280,
+    "BBH": 82.0,
+    "IF": 84.0
+  },
+  "qwen3.5": {
+    "MMLU-Pro": 82.5,
+    "GPQA": 81.7
+  },
+  "qwen3.6": {
+    "MATH": 92.7,
+    "GPQA": 86.0,
+    "SWE": 73.4
+  },
+  "qwq": {
+    "MATH": 95.0
+  },
+  "qwen": {},
+  "qwen3-coder": {},
+  "qwen3-coder-next": {},
+  "qwen3-embedding": {
+    "type": "embedding"
+  },
+  "qwen3-next": {},
+  "qwen3-vl": {},
+  "qwen2.5vl": {},
+  "deepseek-r1": {
+    "MMLU": 90.8,
+    "MMLU-Pro": 84.0,
+    "MATH": 97.3,
+    "HE": 96.4,
+    "GPQA": 71.5,
+    "SWE": 49.2
+  },
+  "deepseek-v2": {
+    "MMLU": 76.2
+  },
+  "deepseek-v2.5": {
+    "MMLU": 78.5
+  },
+  "deepseek-v3": {
+    "MMLU": 88.5,
+    "MMLU-Pro": 75.9,
+    "MATH": 90.5,
+    "HE": 92.0,
+    "GPQA": 59.1
+  },
+  "deepseek-v3.1": {
+    "MMLU": 88.5,
+    "MMLU-Pro": 76.0,
+    "MATH": 91.0,
+    "HE": 92.5,
+    "GPQA": 59.5
+  },
+  "deepseek-v3.2": {
+    "MMLU": 89.0,
+    "MMLU-Pro": 76.5,
+    "MATH": 91.5,
+    "HE": 93.0,
+    "GPQA": 60.0
+  },
+  "deepseek-coder": {
+    "HE": 50.3
+  },
+  "deepseek-coder-v2": {
+    "MATH": 75.7,
+    "HE": 90.2
+  },
+  "deepseek-ocr": {},
+  "deepseek-llm": {
+    "MMLU": 68.0,
+    "HE": 41.0
+  },
+  "deepseek-v4-flash": {},
+  "deepseek-v4-pro": {},
+  "gemma": {
+    "MMLU": 42.3,
+    "HE": 32.3
+  },
+  "gemma2": {
+    "MMLU": 74.0,
+    "MMLU-Pro": 49.1,
+    "MATH": 52.4,
+    "HE": 56.7
+  },
+  "gemma3": {
+    "MMLU": 72.0,
+    "MMLU-Pro": 67.5,
+    "MATH": 89.0,
+    "HE": 74.9
+  },
+  "gemma4": {
+    "MMLU": 87.1,
+    "HE": 82.7
+  },
+  "gemma3n": {},
+  "medgemma": {},
+  "medgemma1.5": {},
+  "translategemma": {},
+  "embeddinggemma": {},
+  "shieldgemma": {},
+  "functiongemma": {},
+  "glm-4.6": {
+    "MATH": 82.8,
+    "SWE": 68.0
+  },
+  "glm-4.7": {},
+  "glm-4.7-flash": {},
+  "glm-5": {
+    "MATH": 95.0,
+    "GPQA": 94.0
+  },
+  "glm-5.1": {
+    "SWE": 71.6
+  },
+  "glm4": {},
+  "glm-ocr": {},
+  "kimi-k2": {
+    "SWE": 65.8
+  },
+  "kimi-k2.5": {
+    "MATH": 98.0,
+    "HE": 99.0,
+    "GPQA": 87.6,
+    "SWE": 76.8
+  },
+  "kimi-k2.6": {},
+  "kimi-k2-thinking": {},
+  "mistral": {
+    "MMLU": 60.0,
+    "MATH": 40.0,
+    "HE": 65.0,
+    "BBH": 52.0,
+    "Arena": 1050
+  },
+  "mistral-large": {
+    "MMLU": 84.0,
+    "HE": 92.0,
+    "BBH": 78.0,
+    "Arena": 1200
+  },
+  "mistral-large-3": {
+    "MMLU": 85.5,
+    "MMLU-Pro": 83.0,
+    "MATH": 75.0,
+    "HE": 92.0,
+    "GPQA": 43.9,
+    "SWE": 41.0,
+    "BBH": 76.0,
+    "Arena": 1200
+  },
+  "mistral-medium-3.5": {
+    "SWE": 77.6
+  },
+  "mistral-nemo": {
+    "MMLU": 68.0,
+    "MATH": 50.0,
+    "HE": 38.0,
+    "BBH": 55.0
+  },
+  "mistral-small": {},
+  "mistral-small3.1": {
+    "MMLU": 81.0,
+    "MATH": 65.0,
+    "HE": 78.0,
+    "Arena": 1120,
+    "BBH": 72.0
+  },
+  "mistral-small3.2": {},
+  "mistral-openorca": {},
+  "magistral": {},
+  "mathstral": {
+    "MMLU": 63.47,
+    "MATH": 56.6
+  },
+  "ministral-3": {
+    "MMLU": 70.7,
+    "MATH": 60.1
+  },
+  "mixtral": {
+    "MMLU": 70.6,
+    "MATH": 28.4,
+    "HE": 54.9,
+    "BBH": 56.7,
+    "Arena": 1115
+  },
+  "mistrallite": {},
+  "samantha-mistral": {},
+  "codestral": {
+    "HE": 82.0
+  },
+  "deepcoder": {},
+  "devstral": {
+    "HE": 82.0,
+    "SWE": 65.8
+  },
+  "devstral-2": {},
+  "devstral-small-2": {},
+  "codegeex4": {},
+  "magicoder": {},
+  "phind-codellama": {},
+  "codegemma": {},
+  "codeqwen": {},
+  "starcoder": {},
+  "starcoder2": {
+    "MMLU": 52.0,
+    "MATH": 35.0,
+    "HE": 46.0
+  },
+  "codebooga": {},
+  "codeup": {},
+  "sqlcoder": {},
+  "duckdb-nsql": {},
+  "opencoder": {},
+  "granite-code": {},
+  "codellama": {
+    "MMLU": 58.0,
+    "MATH": 36.0,
+    "HE": 92.0
+  },
+  "phi": {
+    "MMLU": 59.2,
+    "HE": 52.7,
+    "BBH": 45.6
+  },
+  "phi3": {
+    "MMLU": 78.0,
+    "MATH": 42.0,
+    "HE": 81.5
+  },
+  "phi3.5": {
+    "MMLU": 72.0,
+    "HE": 74.4
+  },
+  "phi4": {
+    "MMLU": 84.8,
+    "MATH": 56.1,
+    "HE": 82.6,
+    "GPQA": 56.1
+  },
+  "phi4-mini": {
+    "MMLU": 74.0,
+    "MATH": 62.0,
+    "HE": 81.0
+  },
+  "phi4-mini-reasoning": {},
+  "phi4-reasoning": {
+    "MATH": 80.4,
+    "HE": 92.9
+  },
+  "yi": {
+    "MMLU": 76.3
+  },
+  "yi-coder": {
+    "MMLU": 68.0,
+    "HE": 85.4
+  },
+  "internlm2": {
+    "MMLU": 65.3,
+    "MATH": 43.9,
+    "HE": 79.0
+  },
+  "solar": {
+    "MMLU": 46.8,
+    "HE": 53.4
+  },
+  "solar-pro": {},
+  "openthinker": {
+    "MATH": 90.6,
+    "GPQA": 61.6
+  },
+  "reflection": {
+    "MMLU": 81.0,
+    "MATH": 73.0
+  },
+  "cogito": {
+    "MMLU": 91.7,
+    "MATH": 60.2
+  },
+  "cogito-2.1": {},
+  "granite3.1-dense": {
+    "MMLU": 67.0,
+    "MATH": 45.0,
+    "HE": 50.0,
+    "BBH": 55.0
+  },
+  "granite3.2": {
+    "MMLU": 70.0,
+    "MATH": 48.0,
+    "HE": 55.0,
+    "BBH": 58.0
+  },
+  "granite3.2-vision": {},
+  "granite3.3": {},
+  "granite4": {},
+  "granite4.1": {
+    "HE": 87.2
+  },
+  "granite3-dense": {},
+  "granite3-guardian": {},
+  "granite3-moe": {},
+  "granite3.1-moe": {},
+  "dolphin-llama3": {},
+  "dolphin-mistral": {},
+  "dolphin-mixtral": {},
+  "dolphin-phi": {},
+  "dolphin3": {},
+  "dolphincoder": {},
+  "hermes3": {},
+  "nous-hermes": {
+    "MMLU": 54.0,
+    "HE": 28.0
+  },
+  "nous-hermes2": {
+    "MMLU": 69.0,
+    "HE": 32.0
+  },
+  "nous-hermes2-mixtral": {
+    "MMLU": 72.0,
+    "HE": 33.0
+  },
+  "vicuna": {
+    "MMLU": 52.0
+  },
+  "wizard-vicuna": {
+    "MMLU": 52.0
+  },
+  "wizard-vicuna-uncensored": {
+    "MMLU": 52.0
+  },
+  "wizardlm": {
+    "MMLU": 55.0,
+    "HE": 36.6
+  },
+  "wizardlm-uncensored": {
+    "MMLU": 52.0,
+    "HE": 35.0
+  },
+  "wizardlm2": {
+    "MMLU": 62.0
+  },
+  "wizard-math": {
+    "MMLU": 55.0,
+    "MATH": 22.7
+  },
+  "wizardcoder": {
+    "HE": 73.0
+  },
+  "openchat": {
+    "MMLU": 62.0,
+    "Arena": 1070
+  },
+  "openhermes": {
+    "MMLU": 64.9,
+    "Arena": 1089
+  },
+  "starling-lm": {
+    "MMLU": 61.0,
+    "Arena": 1080
+  },
+  "zephyr": {
+    "MMLU": 61.1,
+    "Arena": 1053
+  },
+  "notus": {
+    "MMLU": 61.0
+  },
+  "stable-beluga": {
+    "MMLU": 55.0
+  },
+  "neural-chat": {
+    "MMLU": 60.0
+  },
+  "orca-mini": {
+    "MMLU": 52.0
+  },
+  "orca2": {
+    "MMLU": 58.0
+  },
+  "open-orca-platypus2": {
+    "MMLU": 55.0
+  },
+  "stablelm-zephyr": {
+    "MMLU": 46.2
+  },
+  "stable-code": {},
+  "stablelm2": {},
+  "everythinglm": {},
+  "tulu3": {},
+  "marco-o1": {},
+  "sailor2": {},
+  "athene-v2": {},
+  "rnj-1": {},
+  "reader-lm": {},
+  "laguna-xs.2": {},
+  "meditron": {},
+  "medllama2": {},
+  "notux": {},
+  "xwinlm": {},
+  "yarn-llama2": {},
+  "yarn-mistral": {},
+  "megadolphin": {},
+  "tinydolphin": {},
+  "tinyllama": {},
+  "r1-1776": {},
+  "smollm": {},
+  "smollm2": {},
+  "smallthinker": {},
+  "bakllava": {},
+  "llava": {},
+  "llava-llama3": {},
+  "llava-phi3": {},
+  "minicpm-v": {},
+  "moondream": {},
+  "nuextract": {},
+  "nexusraven": {},
+  "alfred": {},
+  "bespoke-minicheck": {},
+  "deepscaler": {},
+  "firefunction-v2": {},
+  "goliath": {},
+  "gpt-oss": {},
+  "gpt-oss-safeguard": {},
+  "lfm2": {},
+  "lfm2.5-thinking": {},
+  "exaone-deep": {},
+  "exaone3.5": {},
+  "falcon": {},
+  "falcon2": {},
+  "falcon3": {},
+  "minimax-m2": {},
+  "minimax-m2.1": {},
+  "minimax-m2.5": {},
+  "minimax-m2.7": {},
+  "gemini-3-flash-preview": {},
+  "all-minilm": {
+    "type": "embedding"
+  },
+  "bge-large": {
+    "type": "embedding"
+  },
+  "bge-m3": {
+    "type": "embedding"
+  },
+  "nomic-embed-text": {
+    "type": "embedding"
+  },
+  "nomic-embed-text-v2-moe": {
+    "type": "embedding"
+  },
+  "mxbai-embed-large": {
+    "type": "embedding"
+  },
+  "snowflake-arctic-embed": {
+    "type": "embedding"
+  },
+  "snowflake-arctic-embed2": {
+    "type": "embedding"
+  },
+  "granite-embedding": {
+    "type": "embedding"
+  },
+  "paraphrase-multilingual": {
+    "type": "embedding"
+  },
+  "nemotron": {},
+  "nemotron-3-nano": {},
+  "nemotron-3-super": {},
+  "nemotron-cascade-2": {},
+  "nemotron-mini": {},
+  "nemotron3": {},
+  "olmo-3": {},
+  "olmo-3.1": {},
+  "olmo2": {}
+}
