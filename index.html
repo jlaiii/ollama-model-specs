@@ -258,7 +258,7 @@ document.getElementById('compGo').onclick=function(){
   const benchKeys=['MMLU','MATH','HE','GPQA','Arena','SWE','BBH','IF'];
   const header=models.map(m=>`<div>${m.name}</div>`).join('');
   const rws=benchKeys.map(k=>{
-    const cells=models.map(m=>{const v=m.benchmarks&&m.benchmarks[k];return`<div class="${v!=null?'':'"}">${v!=null?fmtNum(v):'—'}</div>`;}).join('');
+    const cells=models.map(m=>{const v=m.benchmarks&&m.benchmarks[k];return`<div>${v!=null?fmtNum(v):'—'}</div>`;}).join('');
     return `<div style="display:contents"><div class="h">${k}</div>${cells}</div>`;
   }).join('');
   const szHeader='<div class="h">Tags</div>'+models.map(m=>`<div>${m.tags.length}</div>`).join('');
