@@ -85,16 +85,29 @@
 .mdl-body dt{color:var(--fg3);font-weight:600;float:left;width:130px}
 .mdl-body dd{margin-left:140px;margin-bottom:.4rem}
 .footer{text-align:center;padding:2rem 1rem;color:var(--fg3);font-size:.7rem;border-top:1px solid var(--c3);margin-top:2rem}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%}
 @media(max-width:640px){
 .grid{grid-template-columns:1fr}
 .hero h1{font-size:1.5rem}
-.toolbar{padding:.6rem}
-.toolbar input,.toolbar select,.toolbar button{font-size:16px;-webkit-appearance:none}
+.hero p{font-size:.8rem}
+.toolbar{padding:.6rem;gap:.4rem}
+.toolbar input{font-size:16px;min-width:0;width:100%;flex:1 1 auto}
+.toolbar select,.toolbar button{font-size:16px;-webkit-appearance:none}
+#specPanel .box{gap:.4rem;padding:.6rem}
+#specPanel input,#specPanel select{font-size:16px;width:60px}
+.sticky-inner>span:last-child{display:none}
+.sticky{padding:.5rem .75rem}
 .card{padding:.7rem}
-.tags-table{font-size:.78rem}
-.comp{max-height:45vh;padding:.5rem}
+.tags-table{font-size:.6rem}
+.tags-table th,.tags-table td{padding:.08rem .2rem;white-space:nowrap}
+.comp{max-height:35vh;padding:.5rem}
+body{padding-bottom:80px}
+.mdl{width:98%;padding-bottom:.5rem}
+.mdl-body{padding:.6rem}
+.mdl-table th,.mdl-table td{padding:.25rem .3rem;font-size:.7rem;white-space:nowrap}
 .mdl-body dt{float:none;width:auto;display:block;margin-bottom:.15rem}
 .mdl-body dd{margin-left:0;margin-bottom:.8rem}
+.modal{padding-top:2vh}
 }
 </style>
 </head>
@@ -201,7 +214,7 @@ function card(m){
     return `<tr><td>${t.tag}</td><td class="sz">${fmt(t.size_gb)}</td><td>${fmtCtx(t.context_tokens)}</td><td>${t.modality||'Text'}</td><td>${t.params_b?fmtNum(t.params_b)+'B':'—'}</td><td>${fmt(t.vram_min_gb)}</td><td>${fmt(t.ram_min_gb)}</td><td>${t.gpu_tier||'—'}</td>${specOn?`<td style="font-size:.6rem;color:${spec.includes('✅')?'var(--a)':spec.includes('⚠️')?'var(--warn)':'var(--bad)'}">${spec}</td>`:''}</tr>`;
   }).join('');
   const inComp=compare.includes(m.name)?' on':'';
-  return `<div class="card" id="card-${m.name}"><div class="name">${m.name} ${m.type==='embedding'?'<span class="ct">EMB</span>':''}</div><div class="desc">${(m.description||'').slice(0,160)}${(m.description||'').length>160?'…':''}</div><div class="caps">${caps}</div>${benchHTML(b)}<table class="tags-table"><thead><tr><th>Tag</th><th>Size</th><th>Ctx</th><th>Modality</th><th>Params</th><th>VRAM</th><th>RAM</th><th>GPU</th>${specOn?'<th>Status</th>':''}</tr></thead><tbody>${tagRows}</tbody></table><div class="rowbt"><button onclick="openDetail('${m.name}')">Details</button><button class="${inComp}" onclick="toggleCompare('${m.name}')">${inComp?'In Compare':'Compare'}</button></div></div>`;
+  return `<div class="card" id="card-${m.name}"><div class="name">${m.name} ${m.type==='embedding'?'<span class="ct">EMB</span>':''}</div><div class="desc">${(m.description||'').slice(0,160)}${(m.description||'').length>160?'…':''}</div><div class="caps">${caps}</div>${benchHTML(b)}<div class="tbl-wrap"><table class="tags-table"><thead><tr><th>Tag</th><th>Size</th><th>Ctx</th><th>Modality</th><th>Params</th><th>VRAM</th><th>RAM</th><th>GPU</th>${specOn?'<th>Status</th>':''}</tr></thead><tbody>${tagRows}</tbody></table></div><div class="rowbt"><button onclick="openDetail('${m.name}')">Details</button><button class="${inComp}" onclick="toggleCompare('${m.name}')">${inComp?'In Compare':'Compare'}</button></div></div>`;
 }
 function draw(){
   const q=(document.getElementById('search').value||'').toLowerCase();
@@ -236,7 +249,7 @@ window.openDetail=function(name){
     return `<tr><td>${tag}</td>${cells}</tr>`;
   }).join(''):'';
   document.getElementById('modalTitle').innerHTML=`<h2>${m.name} <span style="font-size:.75rem;color:var(--fg3);font-weight:400">${m.type==='embedding'?'Embedding':'LLM'}</span><button class="close" onclick="closeModal()">×</button></h2>`;
-  document.getElementById('modalBody').innerHTML=`<p style="color:var(--fg2);margin-top:0">${m.description||''}</p><p><strong>Capabilities:</strong> ${(m.caps||[]).map(c=>CL[c]||c).join(', ')||'—'}</p>${rows?`<h3 style="margin:1rem 0 .4rem;font-size:.9rem">Benchmarks</h3><table class="mdl-table"><thead><tr><th>Benchmark</th><th>Score</th></tr></thead><tbody>${rows}</tbody></table>`:''}<h3 style="margin:1rem 0 .4rem;font-size:.9rem">All Tags & Requirements</h3><table class="mdl-table"><thead><tr><th>Tag</th><th>Size</th><th>Context</th><th>Modality</th><th>Params</th><th>VRAM</th><th>RAM</th><th>GPU Tier</th></tr></thead><tbody>${tagRows}</tbody></table>${qRows?`<h3 style="margin:1rem 0 .4rem;font-size:.9rem">Estimated Quant Sizes (sample tags)</h3><table class="mdl-table"><thead><tr><th>Tag</th><th>Q2_K</th><th>Q4_K_M</th><th>Q5_K_M</th><th>Q8_0</th><th>FP16</th></tr></thead><tbody>${qRows}</tbody></table>`:''}`;
+  document.getElementById('modalBody').innerHTML=`<p style="color:var(--fg2);margin-top:0">${m.description||''}</p><p><strong>Capabilities:</strong> ${(m.caps||[]).map(c=>CL[c]||c).join(', ')||'—'}</p>${rows?`<h3 style="margin:1rem 0 .4rem;font-size:.9rem">Benchmarks</h3><div class="tbl-wrap"><table class="mdl-table"><thead><tr><th>Benchmark</th><th>Score</th></tr></thead><tbody>${rows}</tbody></table></div>`:''}<h3 style="margin:1rem 0 .4rem;font-size:.9rem">All Tags & Requirements</h3><div class="tbl-wrap"><table class="mdl-table"><thead><tr><th>Tag</th><th>Size</th><th>Context</th><th>Modality</th><th>Params</th><th>VRAM</th><th>RAM</th><th>GPU Tier</th></tr></thead><tbody>${tagRows}</tbody></table></div>${qRows?`<h3 style="margin:1rem 0 .4rem;font-size:.9rem">Estimated Quant Sizes (sample tags)</h3><div class="tbl-wrap"><table class="mdl-table"><thead><tr><th>Tag</th><th>Q2_K</th><th>Q4_K_M</th><th>Q5_K_M</th><th>Q8_0</th><th>FP16</th></tr></thead><tbody>${qRows}</tbody></table></div>`:''}`;
   document.getElementById('modal').classList.add('on');
 };
 window.closeModal=function(){document.getElementById('modal').classList.remove('on');};
@@ -265,7 +278,7 @@ document.getElementById('compGo').onclick=function(){
   const mxHeader='<div class="h">Largest Tag</div>'+models.map(m=>{const sz=Math.max(...m.tags.map(t=>t.size_gb||0));return`<div>${fmt(sz)}</div>`;}).join('');
   const ctxHeader='<div class="h">Max Context</div>'+models.map(m=>{const c=Math.max(...m.tags.map(t=>t.context_tokens||0));return`<div>${fmtCtx(c)}</div>`;}).join('');
   document.getElementById('modalTitle').innerHTML=`<h2>Compare Models<button class="close" onclick="closeModal()">×</button></h2>`;
-  document.getElementById('modalBody').innerHTML=`<div style="display:grid;grid-template-columns:120px repeat(${models.length},1fr);gap:.4rem;font-size:.75rem">${'<div class="h">Model</div>'+header}${'<div style="display:contents">'+rws+'</div>'}${'<div style="display:contents">'+szHeader+'</div>'}${'<div style="display:contents">'+mxHeader+'</div>'}${'<div style="display:contents">'+ctxHeader+'</div>'}</div>`;
+  document.getElementById('modalBody').innerHTML=`<div style="display:grid;grid-template-columns:120px repeat(${models.length},1fr);gap:.4rem;font-size:clamp(.6rem,2.5vw,.75rem)">${'<div class="h">Model</div>'+header}${'<div style="display:contents">'+rws+'</div>'}${'<div style="display:contents">'+szHeader+'</div>'}${'<div style="display:contents">'+mxHeader+'</div>'}${'<div style="display:contents">'+ctxHeader+'</div>'}</div>`;
   document.getElementById('modal').classList.add('on');
 };
 document.getElementById('search').addEventListener('input',draw);
