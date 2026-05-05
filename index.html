@@ -26,6 +26,10 @@
 .toolbar button:active{background:var(--c3)}
 .toolbar button.on{background:var(--a);color:#000;border-color:var(--a)}
 #specPanel{max-width:1400px;margin:0 auto;padding:0 1rem .8rem;display:none}
+#infoPanel{max-width:1400px;margin:0 auto;padding:0 1rem .8rem;display:none}
+#infoPanel .info-box{background:var(--c1);border:1px solid var(--c3);border-radius:8px;padding:.7rem 1rem;display:flex;flex-direction:column;gap:.3rem;font-size:.82rem}
+#infoPanel .info-box strong{color:var(--a);font-weight:600}
+#infoPanel .info-box span{color:var(--fg2);font-size:.75rem}
 #specPanel .box{background:var(--c1);border:1px solid var(--c3);border-radius:8px;padding:.7rem 1rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;font-size:.82rem}
 #specPanel .box span{color:var(--fg3)}
 #specPanel input,#specPanel select{background:var(--c2);border:1px solid var(--c3);color:var(--fg);border-radius:6px;padding:.35rem .5rem;font-size:.82rem;outline:none;width:70px}
@@ -137,7 +141,32 @@ body{padding-bottom:80px}
     <option value="Arena">Sort: Arena Elo</option>
     <option value="GPQA">Sort: GPQA</option>
   </select>
-  <button id="togSpec">My Specs</button>
+  <button id="togSpec">My Specs</button><button id="togInfo">?</button>
+</div>
+<div id="infoPanel">
+  <div class="box info-box">
+    <div style="display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap">
+      <strong>Tag</strong> <span>> the specific model variant (e.g. 4b, 12b, latest)</span>
+    </div>
+    <div style="display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap">
+      <strong>Size</strong> <span>> real download size scraped from ollama.com in GB</span>
+    </div>
+    <div style="display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap">
+      <strong>Params</strong> <span>> billion parameters (larger = smarter but heavier)</span>
+    </div>
+    <div style="display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap">
+      <strong>VRAM</strong> <span>> minimum GPU video RAM to run fast (GPU inference)</span>
+    </div>
+    <div style="display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap">
+      <strong>RAM</strong> <span>> minimum system RAM to run at all (CPU fallback)</span>
+    </div>
+    <div style="display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap">
+      <strong>GPU Tier</strong> <span>> rough GPU category: CPU-only → 4GB → 8GB → 12GB → 24GB → 48GB → Cloud</span>
+    </div>
+    <div style="margin-top:.5rem;border-top:1px solid var(--c3);padding-top:.5rem;font-size:.75rem;color:var(--fg2)">
+      <strong>Quant Estimates</strong>: the Q2_K–FP16 columns in Details are <em>projected</em> sizes (not real downloads). Ollama ships Q4_K_M by default → 3.5× bigger for full FP16, 0.65× smaller for Q2_K. Good for planning — exact bytes require pulling the specific tag.
+    </div>
+  </div>
 </div>
 <div id="specPanel">
   <div class="box">
@@ -285,6 +314,9 @@ document.getElementById('search').addEventListener('input',draw);
 document.getElementById('sort').addEventListener('change',draw);
 document.getElementById('togSpec').addEventListener('click',function(){
   const p=document.getElementById('specPanel');p.style.display=p.style.display==='block'?'none':'block';this.classList.toggle('on');draw();
+});
+document.getElementById('togInfo').addEventListener('click',function(){
+  const p=document.getElementById('infoPanel');p.style.display=p.style.display==='block'?'none':'block';this.classList.toggle('on');
 });
 ['myRam','myVram','prefBackend'].forEach(id=>document.getElementById(id).addEventListener('input',draw));
 upStats(); buildChips(); draw();
